@@ -59,7 +59,17 @@ namespace QLVT
 
         private void barButtonKhoHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form f = this.CheckExists(typeof(FormKho));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormKho form = new FormKho();
+                form.MdiParent = this;
+                form.Show();
+            }
         }
 
         private void barButtonNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -93,9 +103,9 @@ namespace QLVT
                 
             }
             btnDangNhap.Enabled = false;
-            btnDangXuat.Enabled = true;
-            PageNhapXuat.Visible = true;
-            PageBaoCao.Visible = true;
+            btnDangXuat.Enabled = false;
+            PageNhapXuat.Visible = false;
+            PageBaoCao.Visible = false;
             
         }
 
@@ -132,6 +142,67 @@ namespace QLVT
         private void MANHANVIEN_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void barButtonVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormVatTu));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormVatTu form = new FormVatTu();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+            Form f = this.CheckExists(typeof(FormDonDatHang));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDonDatHang form = new FormDonDatHang();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormPhieuNhap));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormPhieuNhap form = new FormPhieuNhap();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormPhieuXuat));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormPhieuXuat form = new FormPhieuXuat();
+                form.MdiParent = this;
+                form.Show();
+            }
         }
     }
 }

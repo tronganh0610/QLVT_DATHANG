@@ -141,7 +141,7 @@ namespace QLVT
                 return;
 
             // đặt sẵn 1 tài khoản mật khẩu mặt định 
-            txtTAIKHOAN.Text = "Luongtrang"; // le trang 
+            txtTAIKHOAN.Text = "TH"; // le trang 
             txtMATKHAU.Text = "0610";
             layDanhSachPhanManh("select * from LINK2.QLVT_DATHANG.dbo.view_DanhSachPhanManh");
             cmbCHINHANH.SelectedIndex = 0;

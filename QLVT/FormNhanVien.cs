@@ -78,6 +78,12 @@ namespace QLVT
          */
         public void FormNhanVien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS_SV1.PhieuXuat' table. You can move, or remove it, as needed.
+            this.phieuXuatTableAdapter.Fill(this.DS_SV1.PhieuXuat);
+            // TODO: This line of code loads data into the 'DS_SV1.PhieuNhap' table. You can move, or remove it, as needed.
+            this.phieuNhapTableAdapter.Fill(this.DS_SV1.PhieuNhap);
+            // TODO: This line of code loads data into the 'DS_SV1.DatHang' table. You can move, or remove it, as needed.
+            this.datHangTableAdapter.Fill(this.DS_SV1.DatHang);
             /*Step 1*/
             /*không kiểm tra khóa ngoại nữa*/
             DS_SV1.EnforceConstraints = false;
@@ -96,7 +102,7 @@ namespace QLVT
             this.phieuXuatTableAdapter.Fill(this.DS_SV1.PhieuXuat);
 
             /*van con ton tai loi chua sua duoc*/
-            //maChiNhanh = ((DataRowView)bdsSV1[0])["MACN"].ToString();
+            maChiNhanh = ((DataRowView)bdsSV1[0])["MACN"].ToString();
 
             /*Step 2*/
 
@@ -104,40 +110,40 @@ namespace QLVT
             cmbCHINHANH.DisplayMember = "TENCN";
             cmbCHINHANH.ValueMember = "TENSERVER";
             cmbCHINHANH.SelectedIndex = Program.brand;
-
+            
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
-            if (Program.role == "CONGTY")
+            if (Program.role == "CongTy")
             { 
                 cmbCHINHANH.Enabled = true;
                 this.btnThem.Enabled = false;
                 this.btnXoa.Enabled = false;
                 this.btnGhi.Enabled = false;
+                
                 this.btnPhucHoi.Enabled = false;
                 this.btnReload.Enabled = true;
                 //this.btnCHUYENCHINHANH.Enabled = false;
                 this.btnThoat.Enabled = true;
-
+                this.btnInDSNV.Enabled = true;
                 this.panelControl2.Enabled = false;
+                
             }
 
             /* CHI NHANH & USER co the xem - xoa - sua du lieu nhung khong the 
              chuyen sang chi nhanh khac*/
-            if (Program.role == "CHINHANH" || Program.role == "USER")
+            if (Program.role == "ChiNhanh" || Program.role == "User")
             {
                 cmbCHINHANH.Enabled = false;
 
                 this.btnThem.Enabled = true;
                 this.btnXoa.Enabled = true;
                 this.btnGhi.Enabled = true;
-
-                this.btnPhucHoi.Enabled = false;
+                this.btnPhucHoi.Enabled = true;
                 this.btnReload.Enabled = true;
                 //this.btnCHUYENCHINHANH.Enabled = true;
                 this.btnThoat.Enabled = true;
-
                 this.panelControl2.Enabled = true;
-                this.txtMANV.Enabled = false;
+                this.txtMANV.Enabled = true;
             }
 
         }
@@ -254,31 +260,15 @@ namespace QLVT
             this.btnPhucHoi.Enabled = true;
             this.btnReload.Enabled = false;
             //this.btnCHUYENCHINHANH.Enabled = false;
-            this.btnThoat.Enabled = false;
+            this.btnThoat.Enabled = true;
             this.checkBoxTTXoa.Checked = false;
-
             this.nhanVienGridControl.Enabled = false;
             this.panelControl2.Enabled = true;
         }
 
         private void nhanVienGridControl_Click(object sender, EventArgs e)
         {
-            /*txtMANV.DataBindings.Clear();
-            txtMANV.DataBindings.Add("Text", nhanVienGridControl.DataSource, "MANV");
-            txtMACN.DataBindings.Clear();
-            txtMACN.DataBindings.Add("Text", nhanVienGridControl.DataSource, "MACN");
-            txtHO.DataBindings.Clear();
-            txtHO.DataBindings.Add("Text", nhanVienGridControl.DataSource, "HO");
-            txtTEN.DataBindings.Clear();
-            txtTEN.DataBindings.Add("Text", nhanVienGridControl.DataSource, "TEN");
-            deNGAYSINH.DataBindings.Clear();
-            deNGAYSINH.DataBindings.Add("Text", nhanVienGridControl.DataSource, "NGAYSINH");
-            txtDIACHI.DataBindings.Clear();
-            txtDIACHI.DataBindings.Add("Text", nhanVienGridControl.DataSource, "DIACHI");
-            txtLUONG.DataBindings.Clear();
-            txtLUONG.DataBindings.Add("Text", nhanVienGridControl.DataSource, "LUONG");
-            checkBoxTTXoa.DataBindings.Clear();
-            checkBoxTTXoa.DataBindings.Add("Checked", nhanVienGridControl.DataSource, "TrangThaiXoa");*/
+           
         }
         private bool kiemTraDuLieuDauVao()
         {
@@ -303,7 +293,13 @@ namespace QLVT
                 txtHO.Focus();
                 return false;
             }
-
+            //"^[0-9A-Za-z ]+$"
+            if (Regex.IsMatch(txtHO.Text, @"^[A-Za-z ]+$") == false)
+            {
+                MessageBox.Show("Họ của người chỉ có chữ cái và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
+                txtHO.Focus();
+                return false;
+            }
             if (txtHO.Text.Length > 40)
             {
                 MessageBox.Show("Họ không thể lớn hơn 40 kí tự", "Thông báo", MessageBoxButtons.OK);
@@ -318,7 +314,12 @@ namespace QLVT
                 return false;
             }
 
-
+            if (Regex.IsMatch(txtTEN.Text, @"^[a-zA-Z ]+$") == false)
+            {
+                MessageBox.Show("Tên người chỉ có chữ cái và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
+                txtTEN.Focus();
+                return false;
+            }
 
             if (txtTEN.Text.Length > 10)
             {
@@ -334,7 +335,12 @@ namespace QLVT
                 return false;
             }
 
-
+            if (Regex.IsMatch(txtDIACHI.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            {
+                MessageBox.Show("Địa chỉ chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
+                txtDIACHI.Focus();
+                return false;
+            }
 
             if (txtDIACHI.Text.Length > 100)
             {
@@ -364,8 +370,6 @@ namespace QLVT
             bool ketQua = kiemTraDuLieuDauVao();
             if (ketQua == false)
                 return;
-
-
 
             /*Step 1*/
             /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC - sau khi OK thi da la du lieu moi*/
@@ -440,7 +444,6 @@ namespace QLVT
                         btnReload.Enabled = true;
                         //btnCHUYENCHINHANH.Enabled = true;
                         btnThoat.Enabled = true;
-
                         this.txtMANV.Enabled = true;
                         this.bdsSV1.EndEdit();
                         this.nhanVienTableAdapter.Update(this.DS_SV1.NhanVien);
@@ -493,7 +496,86 @@ namespace QLVT
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            String maNV = ((DataRowView)bdsSV1[bdsSV1.Position])["MANV"].ToString();
+            /*Step 1*/
+
+            // khong cho xoa nguoi dang dang nhap ke ca nguoi do khong co don hang - phieu nhap - phieu xuat
+            if (maNV == Program.userName)
+            {
+                MessageBox.Show("Không thể xóa chính tài khoản đang đăng nhập", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (bdsSV1.Count == 0 )
+            {
+                btnXoa.Enabled = false;
+            }
+
+            /*if (bdsDatHang.Count > 0) 
+            {
+                MessageBox.Show("Không thể xóa nhân viên này vì đã lập đơn đặt hàng", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (bdsPhieuNhap.Count > 0)
+            {
+                MessageBox.Show("Không thể xóa nhân viên này vì đã lập phiếu nhập", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (bdsPhieuXuat.Count > 0)
+            {
+                MessageBox.Show("Không thể xóa nhân viên này vì đã lập phiếu xuất", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }*/
+
+            /* Phần này phục vụ tính năng hoàn tác
+                    * Đưa câu truy vấn hoàn tác vào undoList 
+                    * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
+            int trangThai = (checkBoxTTXoa.Checked == true) ? 1 : 0;
+            /*Lấy ngày sinh trong grid view*/
+            String ngaySinh = deNGAYSINH.Text.Trim();
+
+
+            string cauTruyVanHoanTac =
+                string.Format("INSERT INTO DBO.NHANVIEN( MANV,HO,TEN,DIACHI,NGAYSINH,LUONG,MACN)" +
+            "VALUES({0},'{1}','{2}','{3}',CAST({4} AS DATETIME), {5},'{6}')", txtMANV.Text, txtHO.Text, txtTEN.Text, txtDIACHI.Text, ngaySinh, txtLUONG.Value, txtMACN.Text.Trim());
+
+            Console.WriteLine(cauTruyVanHoanTac);
+            undoList.Push(cauTruyVanHoanTac);
+
+
+            /*Step 2*/
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không ?", "Thông báo",
+                MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                try
+                {
+                    /*Step 3*/
+                    viTri = bdsSV1.Position;
+                    bdsSV1.RemoveCurrent();
+
+                    this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.nhanVienTableAdapter.Update(this.DS_SV1.NhanVien);
+
+                    MessageBox.Show("Xóa thành công ", "Thông báo", MessageBoxButtons.OK);
+                    this.btnPhucHoi.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    /*Step 4*/
+                    MessageBox.Show("Lỗi xóa nhân viên. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    this.nhanVienTableAdapter.Fill(this.DS_SV1.NhanVien);
+                    // tro ve vi tri cua nhan vien dang bi loi
+                    bdsSV1.Position = viTri;
+                    //bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
+                    return;
+                }
+            }
+            else
+            {
+                undoList.Pop();
+            }
         }
 
         private void checkBoxTTXoa_CheckedChanged(object sender, EventArgs e)
@@ -525,7 +607,101 @@ namespace QLVT
          *********************************************************************/
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            /* Step 0 - */
+            if ((dangThemMoi == true && this.btnThem.Enabled == false) || (this.btnInDSNV.Enabled == false) )
+            {
+                dangThemMoi = false;
+
+                this.txtMANV.Enabled = true;
+                this.btnThem.Enabled = true;
+                this.btnXoa.Enabled = true;
+                this.btnGhi.Enabled = true;
+                this.btnInDSNV.Enabled = true;
+                this.btnPhucHoi.Enabled = true;
+                this.btnReload.Enabled = true;
+                //this.btnCHUYENCHINHANH.Enabled = true;
+                this.btnThoat.Enabled = true;
+                this.checkBoxTTXoa.Checked = false;
+
+                this.nhanVienGridControl.Enabled = true;
+                this.panelControl2.Enabled = true;
+
+                bdsSV1.CancelEdit();
+                /*xoa dong hien tai*/
+                bdsSV1.RemoveCurrent();
+                /* trở về lúc đầu con trỏ đang đứng*/
+                bdsSV1.Position = viTri;
+                return;
+            }
+
+
+            /*Step 1*/
+            if (undoList.Count == 0)
+            {
+                MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
+                btnPhucHoi.Enabled = false;
+                return;
+            }
+
+            /*Step 2*/
+            bdsSV1.CancelEdit();
+            String cauTruyVanHoanTac = undoList.Pop().ToString();
+            //Console.WriteLine(cauTruyVanHoanTac);
+
+            /*Step 2.1*/
+            /*if (cauTruyVanHoanTac.Contains("sp_ChuyenChiNhanh"))
+            {
+                try
+                {
+                    String chiNhanhHienTai = Program.serverName;
+                    String chiNhanhChuyenToi = Program.serverNameLeft;
+
+                    Program.serverName = chiNhanhChuyenToi;
+                    Program.loginName = Program.remoteLogin;
+                    Program.loginPassword = Program.remotePassword;
+
+                    if (Program.KetNoi() == 0)
+                    {
+                        return;
+                    }
+
+
+                    int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
+
+                    MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK);
+                    Program.serverName = chiNhanhHienTai;
+                    Program.loginName = Program.currentLogin;
+                    Program.loginPassword = Program.currentPassword;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Chuyển nhân viên thất bại \n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
+            }
+            *//*Step 2.2*//*
+            else
+            {
+                if (Program.KetNoi() == 0)
+                {
+                    return;
+                }
+                int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
+
+            }*/
+            this.nhanVienTableAdapter.Fill(this.DS_SV1.NhanVien);
+
+
+
+
+            /*
+            bdsNhanVien.CancelEdit();
+            String cauTruyVanHoanTac = undoList.Pop().ToString();
+            Console.WriteLine(cauTruyVanHoanTac);
+            int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
+            this.nhanVienTableAdapter.Fill(this.dataSet.NhanVien);
+             */
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -550,6 +726,193 @@ namespace QLVT
 
         private void nhanVienGridControl_Click_2(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnInDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.btnInDSNV.Enabled = false;
+            this.btnThem.Enabled = false;
+            this.btnXoa.Enabled = false;
+            this.btnGhi.Enabled = false;
+            this.btnPhucHoi.Enabled = true;
+            this.btnReload.Enabled = false;
+
+            //this.btnCHUYENCHINHANH.Enabled = false;
+            this.btnThoat.Enabled = true;
+            this.nhanVienGridControl.Enabled = false;
+            this.panelControl2.Enabled = false;
+
+            /*try
+            {
+                ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
+                *//*GAN TEN CHI NHANH CHO BAO CAO*//*
+                report.txtChiNhanh.Text = chiNhanh.ToUpper();
+                if (File.Exists(@"D:\ReportDanhSachNhanVien.pdf"))
+                {
+                    DialogResult dr = MessageBox.Show("File ReportDSNhanVien.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
+                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Yes)
+                    {
+                        report.ExportToPdf(@"D:\ReportDSNhanVien.pdf");
+                        MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                else
+                {
+                    report.ExportToPdf(@"D:\ReportDanhSachNhanVien.pdf");
+                    MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Vui lòng đóng file ReportDSNhanVien.pdf",
+                    "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                return;
+            }*/
+        }
+
+        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void mANVLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hOLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tENLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mACNLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nGAYSINHLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dIACHILabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lUONGLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trangThaiXoaLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxTTXoa_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bdsSV1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLUONG_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barDockControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barDockControl2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barDockControl3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barDockControl4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDIACHI_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deNGAYSINH_EditValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMACN_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTEN_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHO_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMANV_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bdsPhieuNhap_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bdsPhieuXuat_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bdsDatHang_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vattuBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+           
 
         }
     }

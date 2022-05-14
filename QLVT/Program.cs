@@ -124,6 +124,7 @@ namespace QLVT
         public static FormChinh formChinh;
         public static FormDangNhap formDangNhap;
         public static FormNhanVien formNhanVien;
+        public static FormVatTu formVatTu;
 
         /*
          * mở kết nối tới server 
