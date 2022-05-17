@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLVT.FormDanhSach;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,7 +40,13 @@ namespace QLVT
          * nếu btnCHUYENCHINHANH sẽ ứng với CHANGEBRAND
          **********************************************************/
         Stack undoList = new Stack();
-
+        private Form CheckExists(Type ftype)
+        {
+            foreach (Form f in this.MdiChildren)
+                if (f.GetType() == ftype)
+                    return f;
+            return null;
+        }
         public FormVatTu()
         {
             InitializeComponent();
@@ -558,6 +565,21 @@ namespace QLVT
             {
                 // xoa cau truy van hoan tac di
                 undoList.Pop();
+            }
+        }
+
+        private void btnInDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormDanhSachVatTu));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDanhSachVatTu form = new FormDanhSachVatTu();
+
+                form.ShowDialog();
             }
         }
     }

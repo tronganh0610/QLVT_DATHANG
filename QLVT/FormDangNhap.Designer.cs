@@ -33,14 +33,14 @@
             this.txtMATKHAU = new DevExpress.XtraEditors.TextEdit();
             this.txtTAIKHOAN = new DevExpress.XtraEditors.TextEdit();
             this.cmbCHINHANH = new System.Windows.Forms.ComboBox();
-            this.dSSV1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DS_SV1 = new QLVT.DS_SV1();
             this.btnTHOAT = new System.Windows.Forms.Button();
             this.btnDANGNHAP = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dSSV1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DS_SV1 = new QLVT.DS_SV1();
             this.dS = new QLVT.DS();
             this.bdsDanhSachPhanManh = new System.Windows.Forms.BindingSource(this.components);
             this.view_DanhSachPhanManhTableAdapter = new QLVT.DS_SV1TableAdapters.view_DanhSachPhanManhTableAdapter();
@@ -72,20 +72,20 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(395, 318);
+            this.panelControl1.Size = new System.Drawing.Size(598, 460);
             this.panelControl1.TabIndex = 0;
             this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // txtMATKHAU
             // 
-            this.txtMATKHAU.Location = new System.Drawing.Point(116, 140);
+            this.txtMATKHAU.Location = new System.Drawing.Point(217, 235);
             this.txtMATKHAU.Name = "txtMATKHAU";
             this.txtMATKHAU.Size = new System.Drawing.Size(156, 22);
             this.txtMATKHAU.TabIndex = 8;
             // 
             // txtTAIKHOAN
             // 
-            this.txtTAIKHOAN.Location = new System.Drawing.Point(116, 103);
+            this.txtTAIKHOAN.Location = new System.Drawing.Point(217, 183);
             this.txtTAIKHOAN.Name = "txtTAIKHOAN";
             this.txtTAIKHOAN.Size = new System.Drawing.Size(156, 22);
             this.txtTAIKHOAN.TabIndex = 7;
@@ -93,21 +93,11 @@
             // cmbCHINHANH
             // 
             this.cmbCHINHANH.FormattingEnabled = true;
-            this.cmbCHINHANH.Location = new System.Drawing.Point(116, 68);
+            this.cmbCHINHANH.Location = new System.Drawing.Point(217, 134);
             this.cmbCHINHANH.Name = "cmbCHINHANH";
             this.cmbCHINHANH.Size = new System.Drawing.Size(156, 24);
             this.cmbCHINHANH.TabIndex = 6;
             this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged_1);
-            // 
-            // dSSV1BindingSource
-            // 
-            this.dSSV1BindingSource.DataSource = this.DS_SV1;
-            this.dSSV1BindingSource.Position = 0;
-            // 
-            // DS_SV1
-            // 
-            this.DS_SV1.DataSetName = "DS_SV1";
-            this.DS_SV1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnTHOAT
             // 
@@ -115,9 +105,9 @@
             this.btnTHOAT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnTHOAT.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTHOAT.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTHOAT.Location = new System.Drawing.Point(194, 192);
+            this.btnTHOAT.Location = new System.Drawing.Point(318, 295);
             this.btnTHOAT.Name = "btnTHOAT";
-            this.btnTHOAT.Size = new System.Drawing.Size(78, 23);
+            this.btnTHOAT.Size = new System.Drawing.Size(91, 40);
             this.btnTHOAT.TabIndex = 5;
             this.btnTHOAT.Text = "THOÁT";
             this.btnTHOAT.UseVisualStyleBackColor = false;
@@ -129,9 +119,9 @@
             this.btnDANGNHAP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDANGNHAP.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDANGNHAP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnDANGNHAP.Location = new System.Drawing.Point(88, 193);
+            this.btnDANGNHAP.Location = new System.Drawing.Point(157, 295);
             this.btnDANGNHAP.Name = "btnDANGNHAP";
-            this.btnDANGNHAP.Size = new System.Drawing.Size(101, 23);
+            this.btnDANGNHAP.Size = new System.Drawing.Size(103, 40);
             this.btnDANGNHAP.TabIndex = 4;
             this.btnDANGNHAP.Text = "ĐĂNG NHẬP";
             this.btnDANGNHAP.UseVisualStyleBackColor = false;
@@ -140,39 +130,52 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(108, 22);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(168, 53);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(179, 24);
+            this.label4.Size = new System.Drawing.Size(252, 34);
             this.label4.TabIndex = 3;
             this.label4.Text = "QUẢN LÝ VẬT TƯ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 143);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(111, 234);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 16);
+            this.label3.Size = new System.Drawing.Size(91, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mật Khẩu";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 106);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(107, 182);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.Size = new System.Drawing.Size(95, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tài Khoản";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 71);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(107, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 16);
+            this.label1.Size = new System.Drawing.Size(104, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chi Nhánh:";
+            // 
+            // dSSV1BindingSource
+            // 
+            this.dSSV1BindingSource.DataSource = this.DS_SV1;
+            this.dSSV1BindingSource.Position = 0;
+            // 
+            // DS_SV1
+            // 
+            this.DS_SV1.DataSetName = "DS_SV1";
+            this.DS_SV1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dS
             // 
@@ -217,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 318);
+            this.ClientSize = new System.Drawing.Size(598, 460);
             this.Controls.Add(this.panelControl1);
             this.Name = "FormDangNhap";
             this.Text = "FormDangNhap";

@@ -268,8 +268,6 @@ namespace QLVT
 
             if (btnCheDo.Links[0].Caption == "Chi Tiết Đơn Đặt Hàng")
             {
-                
-
                 DataRowView drv = ((DataRowView)bdsDatHang[bdsDatHang.Position]);
                 String maNhanVien = drv["MANV"].ToString();
                 if (Program.userName != maNhanVien)
@@ -627,8 +625,7 @@ namespace QLVT
                     this.txtDonGia.Enabled = true;
                     this.txtDonGia.EditValue = 1;
 
-                    datHangGridControl.Enabled = true;
-                    cTDDHGridControl.Enabled = false;
+                    
 
                 }
 

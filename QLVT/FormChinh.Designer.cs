@@ -42,6 +42,8 @@
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonVatTu = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDonHangChuaPN = new DevExpress.XtraBars.BarButtonItem();
             this.PageNhapXuat = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.PageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -78,9 +80,11 @@
             this.barButtonVatTu,
             this.barButtonItem1,
             this.barButtonItem2,
-            this.barButtonItem3});
+            this.barButtonItem3,
+            this.barButtonItem4,
+            this.btnDonHangChuaPN});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 29;
+            this.ribbonControl1.MaxItemId = 34;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.PageNhapXuat,
@@ -153,6 +157,7 @@
             this.btnTaoTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTaoTK.ImageOptions.LargeImage")));
             this.btnTaoTK.Name = "btnTaoTK";
             this.btnTaoTK.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnTaoTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTK_ItemClick);
             // 
             // btnDangXuat
             // 
@@ -192,6 +197,24 @@
             this.barButtonVatTu.Name = "barButtonVatTu";
             this.barButtonVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonVatTu_ItemClick);
             // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Chi Tiết Số Lượng Trị Giá Hàng Hóa Nhập Xuất";
+            this.barButtonItem4.Id = 31;
+            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            // 
+            // btnDonHangChuaPN
+            // 
+            this.btnDonHangChuaPN.Caption = "Đơn Hàng Chưa Có Phiếu Nhập";
+            this.btnDonHangChuaPN.Id = 32;
+            this.btnDonHangChuaPN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDonHangChuaPN.ImageOptions.Image")));
+            this.btnDonHangChuaPN.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDonHangChuaPN.ImageOptions.LargeImage")));
+            this.btnDonHangChuaPN.Name = "btnDonHangChuaPN";
+            this.btnDonHangChuaPN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDonHangChuaPN_ItemClick);
+            // 
             // PageNhapXuat
             // 
             this.PageNhapXuat.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -218,6 +241,8 @@
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnDonHangChuaPN);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
@@ -327,7 +352,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage PageNhapXuat;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPage PageBaoCao;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPage PageHeThong;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
@@ -343,5 +367,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem btnDonHangChuaPN;
     }
 }

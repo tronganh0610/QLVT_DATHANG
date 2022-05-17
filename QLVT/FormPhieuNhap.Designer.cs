@@ -345,15 +345,15 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager2;
-            this.barDockControl1.Size = new System.Drawing.Size(1415, 30);
+            this.barDockControl1.Size = new System.Drawing.Size(1222, 30);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 741);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 579);
             this.barDockControl2.Manager = this.barManager2;
-            this.barDockControl2.Size = new System.Drawing.Size(1415, 20);
+            this.barDockControl2.Size = new System.Drawing.Size(1222, 20);
             // 
             // barDockControl3
             // 
@@ -361,15 +361,15 @@
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 30);
             this.barDockControl3.Manager = this.barManager2;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 711);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 549);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1415, 30);
+            this.barDockControl4.Location = new System.Drawing.Point(1222, 30);
             this.barDockControl4.Manager = this.barManager2;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 711);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 549);
             // 
             // barButtonItem1
             // 
@@ -392,7 +392,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 30);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(8);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1415, 69);
+            this.panelControl1.Size = new System.Drawing.Size(1222, 69);
             this.panelControl1.TabIndex = 7;
             // 
             // cmbCHINHANH
@@ -459,7 +459,7 @@
             this.phieuNhapGridControl.MainView = this.gridView1;
             this.phieuNhapGridControl.MenuManager = this.barManager2;
             this.phieuNhapGridControl.Name = "phieuNhapGridControl";
-            this.phieuNhapGridControl.Size = new System.Drawing.Size(1415, 220);
+            this.phieuNhapGridControl.Size = new System.Drawing.Size(1222, 220);
             this.phieuNhapGridControl.TabIndex = 8;
             this.phieuNhapGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -544,7 +544,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(0, 319);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(668, 422);
+            this.panelControl2.Size = new System.Drawing.Size(668, 260);
             this.panelControl2.TabIndex = 9;
             this.panelControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl2_Paint);
             // 
@@ -675,7 +675,7 @@
             this.cTPNGridControl.MainView = this.gridView2;
             this.cTPNGridControl.MenuManager = this.barManager2;
             this.cTPNGridControl.Name = "cTPNGridControl";
-            this.cTPNGridControl.Size = new System.Drawing.Size(747, 422);
+            this.cTPNGridControl.Size = new System.Drawing.Size(554, 260);
             this.cTPNGridControl.TabIndex = 9;
             this.cTPNGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -751,7 +751,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1415, 761);
+            this.ClientSize = new System.Drawing.Size(1222, 599);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cTPNGridControl);

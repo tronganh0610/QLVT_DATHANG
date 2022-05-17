@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLVT.FormDanhSach;
+using System;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
@@ -78,12 +79,7 @@ namespace QLVT
          */
         public void FormNhanVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS_SV1.PhieuXuat' table. You can move, or remove it, as needed.
-            this.phieuXuatTableAdapter.Fill(this.DS_SV1.PhieuXuat);
-            // TODO: This line of code loads data into the 'DS_SV1.PhieuNhap' table. You can move, or remove it, as needed.
-            this.phieuNhapTableAdapter.Fill(this.DS_SV1.PhieuNhap);
-            // TODO: This line of code loads data into the 'DS_SV1.DatHang' table. You can move, or remove it, as needed.
-            this.datHangTableAdapter.Fill(this.DS_SV1.DatHang);
+            
             /*Step 1*/
             /*không kiểm tra khóa ngoại nữa*/
             DS_SV1.EnforceConstraints = false;
@@ -124,7 +120,7 @@ namespace QLVT
                 this.btnReload.Enabled = true;
                 //this.btnCHUYENCHINHANH.Enabled = false;
                 this.btnThoat.Enabled = true;
-                this.btnInDSNV.Enabled = true;
+                
                 this.panelControl2.Enabled = false;
                 
             }
@@ -608,7 +604,7 @@ namespace QLVT
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /* Step 0 - */
-            if ((dangThemMoi == true && this.btnThem.Enabled == false) || (this.btnInDSNV.Enabled == false) )
+            if ((dangThemMoi == true && this.btnThem.Enabled == false)  )
             {
                 dangThemMoi = false;
 
@@ -616,7 +612,7 @@ namespace QLVT
                 this.btnThem.Enabled = true;
                 this.btnXoa.Enabled = true;
                 this.btnGhi.Enabled = true;
-                this.btnInDSNV.Enabled = true;
+                
                 this.btnPhucHoi.Enabled = true;
                 this.btnReload.Enabled = true;
                 //this.btnCHUYENCHINHANH.Enabled = true;
@@ -734,51 +730,7 @@ namespace QLVT
 
         }
 
-        private void btnInDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            this.btnInDSNV.Enabled = false;
-            this.btnThem.Enabled = false;
-            this.btnXoa.Enabled = false;
-            this.btnGhi.Enabled = false;
-            this.btnPhucHoi.Enabled = true;
-            this.btnReload.Enabled = false;
-
-            //this.btnCHUYENCHINHANH.Enabled = false;
-            this.btnThoat.Enabled = true;
-            this.nhanVienGridControl.Enabled = false;
-            this.panelControl2.Enabled = false;
-
-            /*try
-            {
-                ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
-                *//*GAN TEN CHI NHANH CHO BAO CAO*//*
-                report.txtChiNhanh.Text = chiNhanh.ToUpper();
-                if (File.Exists(@"D:\ReportDanhSachNhanVien.pdf"))
-                {
-                    DialogResult dr = MessageBox.Show("File ReportDSNhanVien.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
-                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (dr == DialogResult.Yes)
-                    {
-                        report.ExportToPdf(@"D:\ReportDSNhanVien.pdf");
-                        MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
-                "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
-                }
-                else
-                {
-                    report.ExportToPdf(@"D:\ReportDanhSachNhanVien.pdf");
-                    MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
-                "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show("Vui lòng đóng file ReportDSNhanVien.pdf",
-                    "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                return;
-            }*/
-        }
+        
 
         private void panelControl1_Paint(object sender, PaintEventArgs e)
         {
@@ -914,6 +866,56 @@ namespace QLVT
         {
            
 
+        }
+
+        private void nhanVienGridControl_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormDanhSachNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDanhSachNhanVien form = new FormDanhSachNhanVien();
+                
+                form.ShowDialog();
+            }
+        }
+
+        private void btnHoatDongNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormDanhSachHoatDongNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+               
+                DataRowView drv = ((DataRowView)(bdsSV1.Current));
+                string maNhanVien = drv["MANV"].ToString().Trim();
+                string ho = drv["HO"].ToString().Trim();
+                string ten = drv["TEN"].ToString().Trim();
+                string hoTen = ho + " " + ten;
+
+                Program.maNhanVienDuocChon = maNhanVien;
+                Program.hoTen = hoTen;
+
+
+                FormDanhSachHoatDongNhanVien form = new FormDanhSachHoatDongNhanVien();
+                form.ShowDialog();
+            }
+            
+            
+            
+
+            
         }
     }
 }

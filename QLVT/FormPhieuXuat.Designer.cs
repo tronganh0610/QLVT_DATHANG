@@ -239,6 +239,7 @@
             this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
             this.btnThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.LargeImage")));
             this.btnThem.Name = "btnThem";
+            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
             // btnGhi
             // 
@@ -247,6 +248,7 @@
             this.btnGhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGhi.ImageOptions.Image")));
             this.btnGhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGhi.ImageOptions.LargeImage")));
             this.btnGhi.Name = "btnGhi";
+            this.btnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhi_ItemClick);
             // 
             // btnXoa
             // 
@@ -255,6 +257,7 @@
             this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
             this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
             this.btnXoa.Name = "btnXoa";
+            this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
             // btnPhucHoi
             // 
@@ -263,6 +266,7 @@
             this.btnPhucHoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.Image")));
             this.btnPhucHoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.LargeImage")));
             this.btnPhucHoi.Name = "btnPhucHoi";
+            this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
             // 
             // btnReload
             // 
@@ -271,6 +275,7 @@
             this.btnReload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReload.ImageOptions.Image")));
             this.btnReload.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReload.ImageOptions.LargeImage")));
             this.btnReload.Name = "btnReload";
+            this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
             // 
             // btnCheDo
             // 
@@ -295,6 +300,7 @@
             this.btnCheDoChiTietPhieuXuat.Caption = "Chi Tiết Phiếu Xuất";
             this.btnCheDoChiTietPhieuXuat.Id = 11;
             this.btnCheDoChiTietPhieuXuat.Name = "btnCheDoChiTietPhieuXuat";
+            this.btnCheDoChiTietPhieuXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCheDoChiTietPhieuXuat_ItemClick);
             // 
             // btnThoat
             // 
@@ -323,15 +329,15 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager2;
-            this.barDockControl1.Size = new System.Drawing.Size(1209, 30);
+            this.barDockControl1.Size = new System.Drawing.Size(1283, 30);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 684);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 655);
             this.barDockControl2.Manager = this.barManager2;
-            this.barDockControl2.Size = new System.Drawing.Size(1209, 20);
+            this.barDockControl2.Size = new System.Drawing.Size(1283, 20);
             // 
             // barDockControl3
             // 
@@ -339,15 +345,15 @@
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 30);
             this.barDockControl3.Manager = this.barManager2;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 654);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 625);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1209, 30);
+            this.barDockControl4.Location = new System.Drawing.Point(1283, 30);
             this.barDockControl4.Manager = this.barManager2;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 654);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 625);
             // 
             // barButtonItem1
             // 
@@ -370,6 +376,7 @@
             this.cmbCHINHANH.Name = "cmbCHINHANH";
             this.cmbCHINHANH.Size = new System.Drawing.Size(362, 24);
             this.cmbCHINHANH.TabIndex = 3;
+            this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -390,7 +397,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 30);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(8);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1209, 69);
+            this.panelControl1.Size = new System.Drawing.Size(1283, 69);
             this.panelControl1.TabIndex = 8;
             // 
             // bdsPhieuXuat
@@ -429,7 +436,7 @@
             this.phieuXuatGridControl.MainView = this.gridView1;
             this.phieuXuatGridControl.MenuManager = this.barManager2;
             this.phieuXuatGridControl.Name = "phieuXuatGridControl";
-            this.phieuXuatGridControl.Size = new System.Drawing.Size(1209, 220);
+            this.phieuXuatGridControl.Size = new System.Drawing.Size(1283, 220);
             this.phieuXuatGridControl.TabIndex = 9;
             this.phieuXuatGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -503,7 +510,7 @@
             this.cTPXGridControl.MainView = this.gridView2;
             this.cTPXGridControl.MenuManager = this.barManager2;
             this.cTPXGridControl.Name = "cTPXGridControl";
-            this.cTPXGridControl.Size = new System.Drawing.Size(541, 365);
+            this.cTPXGridControl.Size = new System.Drawing.Size(615, 336);
             this.cTPXGridControl.TabIndex = 10;
             this.cTPXGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -579,6 +586,7 @@
             this.btnChonVatTu.TabIndex = 20;
             this.btnChonVatTu.Text = "Chọn Vật Tư";
             this.btnChonVatTu.UseVisualStyleBackColor = true;
+            this.btnChonVatTu.Click += new System.EventHandler(this.btnChonVatTu_Click);
             // 
             // panelControl2
             // 
@@ -604,7 +612,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(0, 319);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(668, 365);
+            this.panelControl2.Size = new System.Drawing.Size(668, 336);
             this.panelControl2.TabIndex = 10;
             // 
             // txtDonGia
@@ -717,7 +725,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 704);
+            this.ClientSize = new System.Drawing.Size(1283, 675);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cTPXGridControl);

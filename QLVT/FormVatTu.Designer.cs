@@ -423,11 +423,12 @@
             // 
             // btnInDSNV
             // 
-            this.btnInDSNV.Caption = "In Danh Sách Nhân Viên";
+            this.btnInDSNV.Caption = "In Danh Sách Vật Tư";
             this.btnInDSNV.Id = 7;
             this.btnInDSNV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInDSNV.ImageOptions.Image")));
             this.btnInDSNV.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnInDSNV.ImageOptions.LargeImage")));
             this.btnInDSNV.Name = "btnInDSNV";
+            this.btnInDSNV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInDSNV_ItemClick);
             // 
             // btnThoat
             // 

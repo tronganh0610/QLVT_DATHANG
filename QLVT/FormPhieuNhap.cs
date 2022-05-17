@@ -275,7 +275,6 @@ namespace QLVT
             viTri = bds.Position;
             dangThemMoi = true;
 
-
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bds.AddNew();
@@ -316,8 +315,8 @@ namespace QLVT
                 this.txtMAVT.Text = "";
                 this.btnChonChiTietDonHang.Enabled = true;
                 this.panelControl2.Enabled = true;
-                this.txtSOLUONG.Enabled = false;
-                this.txtDONGIA.Enabled = false;
+                this.txtSOLUONG.Enabled = true;
+                this.txtDONGIA.Enabled = true;
                 
 
                 /*Gan tu dong may truong du lieu nay*/
@@ -396,6 +395,7 @@ namespace QLVT
                     this.txtDONGIA.Enabled = false;
 
                     this.btnXoa.Enabled = false;
+                    
                 }
                 this.btnThem.Enabled = true;
                 this.btnXoa.Enabled = true;
@@ -570,8 +570,6 @@ namespace QLVT
             /*Step 2*/
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
             if (ketQua == false) return;
-
-
 
             /*Step 3*/
             string cauTruyVanHoanTac = taoCauTruyVanHoanTac(cheDo);
