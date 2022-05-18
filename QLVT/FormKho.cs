@@ -91,7 +91,7 @@ namespace QLVT
                 this.btnReload.Enabled = true;
                 //this.btnCHUYENCHINHANH.Enabled = false;
                 this.btnThoat.Enabled = true;
-                this.btnInDSNV.Enabled = true;
+                
                 this.panelControl2.Enabled = false;
 
             }
@@ -236,12 +236,12 @@ namespace QLVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtTenKho.Text, @"^[a-zA-Z0-9 ]+$") == false)
+            /*if (Regex.IsMatch(txtTenKho.Text, @"^[a-zA-Z0-9 ]+$") == false)
             {
-                MessageBox.Show("Mã kho chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Tên kho chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtTenKho.Focus();
                 return false;
-            }
+            }*/
 
             if (txtTenKho.Text.Length > 30)
             {
@@ -257,12 +257,12 @@ namespace QLVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtDiaChi.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            /*if (Regex.IsMatch(txtDiaChi.Text, @"^[a-zA-Z0-9, ]+$") == false)
             {
                 MessageBox.Show("Địa chỉ chỉ gồm chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtDiaChi.Focus();
                 return false;
-            }
+            }*/
 
             if (txtDiaChi.Text.Length > 100)
             {
@@ -285,8 +285,8 @@ namespace QLVT
             /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC*/
             String maKhoHang = txtMaKho.Text.Trim();// Trim() de loai bo khoang trang thua
             DataRowView drv = ((DataRowView)bdsKho[bdsKho.Position]);
-            String tenKhoHang = drv["TENKHO"].ToString();
-            String diaChi = drv["DIACHI"].ToString();
+            String tenKhoHang = drv["TENKHO"].ToString().Trim();
+            String diaChi = drv["DIACHI"].ToString().Trim();
 
             /*declare @returnedResult int
               exec @returnedResult = sp_KiemTraMaVatTu '20'
@@ -345,7 +345,7 @@ namespace QLVT
                         //btnCHUYENCHINHANH.Enabled = true;
                         btnThoat.Enabled = true;
 
-                        this.txtMaKho.Enabled = false;
+                        this.txtMaKho.Enabled = true;
                         this.khoGridControl.Enabled = true;
 
                         /*lưu 1 câu truy vấn để hoàn tác yêu cầu*/
@@ -355,7 +355,7 @@ namespace QLVT
                         {
                             cauTruyVanHoanTac = "" +
                                 "DELETE DBO.KHO " +
-                                "WHERE MAKHO = '" + txtMaKho.Text.Trim() + "'";
+                                "WHERE MAKHO = '" + maKhoHang + "'";
                         }
                         /*trước khi ấn btnGHI là sửa thông tin kho*/
                         else
@@ -414,7 +414,7 @@ namespace QLVT
 
                 bdsKho.CancelEdit();
                 /*xoa dong hien tai*/
-                bdsKho.RemoveCurrent();
+                //bdsKho.RemoveCurrent();
                 /* trở về lúc đầu con trỏ đang đứng*/
                 bdsKho.Position = viTri;
                 return;

@@ -290,12 +290,12 @@ namespace QLVT
                 return false;
             }
             //"^[0-9A-Za-z ]+$"
-            if (Regex.IsMatch(txtHO.Text, @"^[A-Za-z ]+$") == false)
+            /*if (Regex.IsMatch(txtHO.Text, @"^[A-Za-z ]+$") == false)
             {
                 MessageBox.Show("Họ của người chỉ có chữ cái và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtHO.Focus();
                 return false;
-            }
+            }*/
             if (txtHO.Text.Length > 40)
             {
                 MessageBox.Show("Họ không thể lớn hơn 40 kí tự", "Thông báo", MessageBoxButtons.OK);
@@ -310,12 +310,12 @@ namespace QLVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtTEN.Text, @"^[a-zA-Z ]+$") == false)
+            /*if (Regex.IsMatch(txtTEN.Text, @"^[a-zA-Z ]+$") == false)
             {
                 MessageBox.Show("Tên người chỉ có chữ cái và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtTEN.Focus();
                 return false;
-            }
+            }*/
 
             if (txtTEN.Text.Length > 10)
             {
@@ -331,12 +331,12 @@ namespace QLVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtDIACHI.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            /*if (Regex.IsMatch(txtDIACHI.Text, @"^[a-zA-Z0-9, ]+$") == false)
             {
                 MessageBox.Show("Địa chỉ chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtDIACHI.Focus();
                 return false;
-            }
+            }*/
 
             if (txtDIACHI.Text.Length > 100)
             {

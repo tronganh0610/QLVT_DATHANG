@@ -41,7 +41,7 @@ namespace QLVT
             btnDangXuat.Enabled = true;
 
             PageNhapXuat.Visible = true;
-            PageBaoCao.Visible = true;
+            PageTongHop.Visible = true;
             btnTaoTK.Enabled = true;
 
             if (Program.role == "User")
@@ -107,7 +107,7 @@ namespace QLVT
             btnDangNhap.Enabled = false;
             btnDangXuat.Enabled = false;
             PageNhapXuat.Visible = false;
-            PageBaoCao.Visible = false;
+            PageTongHop.Visible = false;
             
         }
 
@@ -118,7 +118,7 @@ namespace QLVT
             btnDangXuat.Enabled = false;
             btnTaoTK.Enabled = false;
             PageNhapXuat.Visible = false;
-            PageBaoCao.Visible = false;
+            PageTongHop.Visible = false;
 
         }
 
@@ -135,7 +135,7 @@ namespace QLVT
             btnDangXuat.Enabled = false;
             btnTaoTK.Enabled = false;
             PageNhapXuat.Visible = false;
-            PageBaoCao.Visible = false;
+            PageTongHop.Visible = false;
             Program.formChinh.MANHANVIEN.Text = "MÃNV:";
             Program.formChinh.HOTEN.Text = "HỌ TÊN:";
             Program.formChinh.NHOM.Text = "NHÓM:";
@@ -252,20 +252,7 @@ namespace QLVT
             }
         }
 
-        private void btnDonHangChuaPN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Form f = this.CheckExists(typeof(FormDonHangChuaCoPhieuNhap));
-            if (f != null)
-            {
-                f.Activate();
-            }
-            else
-            {
-                FormDonHangChuaCoPhieuNhap form = new FormDonHangChuaCoPhieuNhap();
-                form.MdiParent = this;
-                form.Show();
-            }
-        }
+        
 
         private void btnTaoTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -293,6 +280,21 @@ namespace QLVT
             else
             {
                 FormDanhSachHoatDongNhanVien form = new FormDanhSachHoatDongNhanVien();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnTongHopNhapXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormTongHopNhapXuat));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormTongHopNhapXuat form = new FormTongHopNhapXuat();
                 form.MdiParent = this;
                 form.Show();
             }

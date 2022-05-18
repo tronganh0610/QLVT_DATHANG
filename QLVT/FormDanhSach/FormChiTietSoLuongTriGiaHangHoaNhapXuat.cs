@@ -69,12 +69,12 @@ namespace QLVT.FormDanhSach
 
                 if (File.Exists(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf"))
                 {
-                    DialogResult dr = MessageBox.Show("File ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
+                    DialogResult dr = MessageBox.Show("File ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf tại thư mục ExportPDF đã có!\nBạn có muốn tạo lại?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
                         report.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf");
-                        MessageBox.Show("File ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf đã được ghi thành công tại ổ D",
+                        MessageBox.Show("File ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf đã được ghi thành công tại thư mục ExportPDF",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
@@ -82,7 +82,7 @@ namespace QLVT.FormDanhSach
                 else
                 {
                     report.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf");
-                    MessageBox.Show("File ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf đã được ghi thành công tại ổ D",
+                    MessageBox.Show("File ChiTietSoLuongGiaTriHangHoaNhapXuat.pdf đã được ghi thành công tại thư mục ExportPDF",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

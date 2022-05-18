@@ -73,7 +73,7 @@ namespace QLVT.FormDanhSach
                 //report.txtChiNhanh.Text = chiNhanh.ToUpper();
                 if (File.Exists(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachVatTu.pdf"))
                 {
-                    DialogResult dr = MessageBox.Show("File DanhSachVatTu.pdf tại thư phục đã có!\nBạn có muốn tạo lại?",
+                    DialogResult dr = MessageBox.Show("File DanhSachVatTu.pdf tại thư mục ExportPDF đã có!\nBạn có muốn tạo lại?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {

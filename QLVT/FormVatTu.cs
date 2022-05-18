@@ -82,16 +82,13 @@ namespace QLVT
 
             /*Step 2*/
 
-            cmbCHINHANH.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
-            cmbCHINHANH.DisplayMember = "TENCN";
-            cmbCHINHANH.ValueMember = "TENSERVER";
-            cmbCHINHANH.SelectedIndex = Program.brand;
+           
 
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
             if (Program.role == "CongTy")
             {
-                cmbCHINHANH.Enabled = false;
+                
                 this.btnThem.Enabled = false;
                 this.btnXoa.Enabled = false;
                 this.btnGhi.Enabled = false;
@@ -109,7 +106,7 @@ namespace QLVT
              chuyen sang chi nhanh khac*/
             if (Program.role == "ChiNhanh" || Program.role == "User")
             {
-                cmbCHINHANH.Enabled = false;
+                
 
                 this.btnThem.Enabled = true;
                 this.btnXoa.Enabled = true;
@@ -133,45 +130,7 @@ namespace QLVT
         private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            /*
-            /*Neu combobox khong co so lieu thi ket thuc luon*/
-            if (cmbCHINHANH.SelectedValue.ToString() == "System.Data.DataRowView")
-                return;
-
-            Program.serverName = cmbCHINHANH.SelectedValue.ToString();
-
-            /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
-            if (cmbCHINHANH.SelectedIndex != Program.brand)
-            {
-                Program.loginName = Program.remoteLogin;
-                Program.loginPassword = Program.remotePassword;
-            }
-            /*Neu chon trung voi chi nhanh dang dang nhap o formDangNhap*/
-            else
-            {
-                Program.loginName = Program.currentLogin;
-                Program.loginPassword = Program.currentPassword;
-            }
-
-            if (Program.KetNoi() == 0)
-            {
-                MessageBox.Show("Xảy ra lỗi kết nối với chi nhánh hiện tại", "Thông báo", MessageBoxButtons.OK);
-            }
-            else
-            {
-                /*Do du lieu tu dataSet vao grid Control*/
-                this.CTPXTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.CTPXTableAdapter.Fill(this.DS_SV1.CTPX);
-
-                this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.CTPNTableAdapter.Fill(this.DS_SV1.CTPN);
-
-                this.CTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.CTDDHTableAdapter.Fill(this.DS_SV1.CTDDH);
-
-                this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.vattuTableAdapter.Fill(this.DS_SV1.Vattu);
-            }
+            
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -279,12 +238,12 @@ namespace QLVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtTenVT.Text, @"^[a-zA-Z0-9 ]+$") == false)
+            /*if (Regex.IsMatch(txtTenVT.Text, @"^[a-zA-Z0-9 ]+$") == false)
             {
                 MessageBox.Show("Tên vật tư chỉ chấp nhận chữ, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtTenVT.Focus();
                 return false;
-            }
+            }*/
 
             if (txtTenVT.Text.Length > 30)
             {
@@ -300,12 +259,12 @@ namespace QLVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtDVT.Text, @"^[a-zA-Z ]+$") == false)
+            /*if (Regex.IsMatch(txtDVT.Text, @"^[a-zA-Z ]+$") == false)
             {
                 MessageBox.Show("Đơn vị vật tư chỉ có chữ cái", "Thông báo", MessageBoxButtons.OK);
                 txtDVT.Focus();
                 return false;
-            }
+            }*/
 
             if (txtDVT.Text.Length > 15)
             {
@@ -581,6 +540,31 @@ namespace QLVT
 
                 form.ShowDialog();
             }
+        }
+
+        private void mAVTLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dVTLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sOLUONGTONLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tENVTLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMAVT_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

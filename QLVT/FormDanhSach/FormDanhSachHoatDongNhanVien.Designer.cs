@@ -85,10 +85,11 @@
             // txtMaNV
             // 
             this.txtMaNV.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNV.Location = new System.Drawing.Point(379, 165);
+            this.txtMaNV.Location = new System.Drawing.Point(387, 165);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(210, 28);
             this.txtMaNV.TabIndex = 27;
+            this.txtMaNV.TextChanged += new System.EventHandler(this.txtMaNV_TextChanged);
             // 
             // cmbChiNhanh
             // 
@@ -97,7 +98,7 @@
             this.cmbChiNhanh.Items.AddRange(new object[] {
             "Phiếu Nhập",
             "Phiếu Xuất"});
-            this.cmbChiNhanh.Location = new System.Drawing.Point(379, 271);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(387, 271);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(210, 29);
             this.cmbChiNhanh.TabIndex = 26;
@@ -116,7 +117,7 @@
             // txtHoTen
             // 
             this.txtHoTen.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoTen.Location = new System.Drawing.Point(379, 221);
+            this.txtHoTen.Location = new System.Drawing.Point(387, 221);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(210, 28);
             this.txtHoTen.TabIndex = 24;
@@ -149,10 +150,11 @@
             this.cmbLoaiPhieu.Items.AddRange(new object[] {
             "Nhap",
             "Xuat"});
-            this.cmbLoaiPhieu.Location = new System.Drawing.Point(379, 325);
+            this.cmbLoaiPhieu.Location = new System.Drawing.Point(387, 325);
             this.cmbLoaiPhieu.Name = "cmbLoaiPhieu";
             this.cmbLoaiPhieu.Size = new System.Drawing.Size(210, 29);
             this.cmbLoaiPhieu.TabIndex = 20;
+            this.cmbLoaiPhieu.SelectedIndexChanged += new System.EventHandler(this.cmbLoaiPhieu_SelectedIndexChanged);
             // 
             // dateEditNgayKetThuc
             // 
@@ -193,6 +195,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "Xuất File PDF";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -240,6 +243,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(164, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(575, 36);

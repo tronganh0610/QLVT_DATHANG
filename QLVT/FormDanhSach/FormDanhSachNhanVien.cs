@@ -140,12 +140,12 @@ namespace QLVT
                     //report.txtChiNhanh.Text = chiNhanh.ToUpper();
                     if (File.Exists(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachNhanVienCN1.pdf"))
                     {
-                        DialogResult dr = MessageBox.Show("File DanhSachNhanVienCN1.pdf tại thư phục đã có!\nBạn có muốn tạo lại?",
+                        DialogResult dr = MessageBox.Show("File DanhSachNhanVienCN1.pdf tại thư mục ExportPDF đã có!\nBạn có muốn tạo lại?",
                             "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (dr == DialogResult.Yes)
                         {
                             report.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachNhanVienCN1.pdf");
-                            MessageBox.Show("File DanhSachNhanVienCN1 đã được ghi thành công tại thư mục ExportPDF",
+                            MessageBox.Show("File DanhSachNhanVienCN1 đã được ghi thành công tại thư mụcExportPDF",
                     "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }

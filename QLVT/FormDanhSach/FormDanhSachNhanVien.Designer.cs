@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mACNLabel;
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.NhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DS_SV1 = new QLVT.DS_SV1();
             this.bdsNhanVien = new System.Windows.Forms.BindingSource(this.components);
@@ -100,7 +100,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(237, 43);
+            this.label1.Location = new System.Drawing.Point(240, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(417, 40);
@@ -153,9 +153,9 @@
             // 
             // reportViewer1
             // 
-            reportDataSource2.Name = "NhanVien";
-            reportDataSource2.Value = this.NhanVienBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "NhanVien";
+            reportDataSource1.Value = this.NhanVienBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QLVT.Report.RpDSNhanVien.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(-574, 489);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);

@@ -78,24 +78,30 @@
             // 
             // txtMATKHAU
             // 
-            this.txtMATKHAU.Location = new System.Drawing.Point(217, 235);
+            this.txtMATKHAU.Location = new System.Drawing.Point(226, 235);
             this.txtMATKHAU.Name = "txtMATKHAU";
-            this.txtMATKHAU.Size = new System.Drawing.Size(156, 22);
+            this.txtMATKHAU.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMATKHAU.Properties.Appearance.Options.UseFont = true;
+            this.txtMATKHAU.Properties.UseSystemPasswordChar = true;
+            this.txtMATKHAU.Size = new System.Drawing.Size(156, 28);
             this.txtMATKHAU.TabIndex = 8;
             // 
             // txtTAIKHOAN
             // 
-            this.txtTAIKHOAN.Location = new System.Drawing.Point(217, 183);
+            this.txtTAIKHOAN.Location = new System.Drawing.Point(226, 183);
             this.txtTAIKHOAN.Name = "txtTAIKHOAN";
-            this.txtTAIKHOAN.Size = new System.Drawing.Size(156, 22);
+            this.txtTAIKHOAN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTAIKHOAN.Properties.Appearance.Options.UseFont = true;
+            this.txtTAIKHOAN.Size = new System.Drawing.Size(156, 28);
             this.txtTAIKHOAN.TabIndex = 7;
             // 
             // cmbCHINHANH
             // 
+            this.cmbCHINHANH.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCHINHANH.FormattingEnabled = true;
-            this.cmbCHINHANH.Location = new System.Drawing.Point(217, 134);
+            this.cmbCHINHANH.Location = new System.Drawing.Point(226, 134);
             this.cmbCHINHANH.Name = "cmbCHINHANH";
-            this.cmbCHINHANH.Size = new System.Drawing.Size(156, 24);
+            this.cmbCHINHANH.Size = new System.Drawing.Size(156, 29);
             this.cmbCHINHANH.TabIndex = 6;
             this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged_1);
             // 
@@ -104,7 +110,7 @@
             this.btnTHOAT.BackColor = System.Drawing.Color.Silver;
             this.btnTHOAT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnTHOAT.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTHOAT.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTHOAT.ForeColor = System.Drawing.Color.Black;
             this.btnTHOAT.Location = new System.Drawing.Point(318, 295);
             this.btnTHOAT.Name = "btnTHOAT";
             this.btnTHOAT.Size = new System.Drawing.Size(91, 40);
@@ -118,7 +124,7 @@
             this.btnDANGNHAP.BackColor = System.Drawing.Color.Silver;
             this.btnDANGNHAP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDANGNHAP.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDANGNHAP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnDANGNHAP.ForeColor = System.Drawing.Color.Black;
             this.btnDANGNHAP.Location = new System.Drawing.Point(157, 295);
             this.btnDANGNHAP.Name = "btnDANGNHAP";
             this.btnDANGNHAP.Size = new System.Drawing.Size(103, 40);
@@ -131,6 +137,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(168, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(252, 34);
@@ -141,31 +148,31 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(111, 234);
+            this.label3.Location = new System.Drawing.Point(107, 238);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 21);
+            this.label3.Size = new System.Drawing.Size(102, 21);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Mật Khẩu";
+            this.label3.Text = "Mật Khẩu :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(107, 182);
+            this.label2.Location = new System.Drawing.Point(103, 186);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 21);
+            this.label2.Size = new System.Drawing.Size(106, 21);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Tài Khoản";
+            this.label2.Text = "Tài Khoản :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(107, 137);
+            this.label1.Location = new System.Drawing.Point(100, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 21);
+            this.label1.Size = new System.Drawing.Size(109, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Chi Nhánh:";
+            this.label1.Text = "Chi Nhánh :";
             // 
             // dSSV1BindingSource
             // 

@@ -208,7 +208,7 @@ namespace QLVT
             this.btnChonDonHang.Enabled = true;
             phieuNhapGridControl.Enabled = true;
             cTPNGridControl.Enabled = false;
-
+            panelControl2.Enabled = true;
 
             /*Tat chuc nang cua chi tiet phieu nhap*/
             
@@ -216,7 +216,7 @@ namespace QLVT
             txtSOLUONG.Enabled = false;
             txtDONGIA.Enabled = false;
             btnChonChiTietDonHang.Enabled = false;
-
+            
             this.btnThem.Enabled = true;
             bool turnOn = (bdsPhieuNhap.Count > 0) ? true : false;
             this.btnXoa.Enabled = turnOn;
@@ -255,7 +255,7 @@ namespace QLVT
             btnChonChiTietDonHang.Enabled=true;
             phieuNhapGridControl.Enabled = true;
             cTPNGridControl.Enabled = true;
-
+            panelControl2.Enabled = true;
 
             this.btnThem.Enabled = true;
             bool turnOn = (bdsCTPN.Count > 0) ? true : false;
@@ -354,13 +354,44 @@ namespace QLVT
         {
             try
             {
+                // do du lieu moi tu dataSet vao gridControl NHANVIEN
                 this.phieuNhapTableAdapter.Fill(this.DS_SV1.PhieuNhap);
                 this.cTPNTableAdapter.Fill(this.DS_SV1.CTPN);
+
+
+                string cheDo = (btnCheDo.Links[0].Caption == "Phiếu Nhập") ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
+                if (cheDo == "Phiếu Nhập")
+                {
+                    this.txtMADDH.Enabled = false;
+                    this.txtMAPN.Enabled = true;
+                    this.deNGAY.Enabled = true;
+                    this.txtMANV.Enabled = true;
+                    this.txtMAKHO.Enabled = true;
+                    this.btnChonDonHang.Enabled = true;
+                    phieuNhapGridControl.Enabled = true;
+                    cTPNGridControl.Enabled = false;
+                    panelControl2.Enabled = true;
+                    bdsPhieuNhap.Position = viTri;
+
+                }
+                if (cheDo == "Chi Tiết Phiếu Nhập")
+                {
+                    txtMADDH.Enabled = true;
+                    txtSOLUONG.Enabled = true;
+                    txtDONGIA.Enabled = true;
+                    btnChonChiTietDonHang.Enabled = true;
+                    phieuNhapGridControl.Enabled = true;
+                    cTPNGridControl.Enabled = true;
+                    panelControl2.Enabled = true;
+                    bdsCTPN.Position = viTri;
+
+
+                }
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi làm mời dữ liệu\n\n" + ex.Message, "Thông Báo", MessageBoxButtons.OK);
-                Console.WriteLine(ex.Message);
+                MessageBox.Show("Lỗi Làm mới" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                 return;
             }
         }
@@ -442,6 +473,7 @@ namespace QLVT
             int n = Program.ExecSqlNonQuery(cauTruyVan);
             Console.WriteLine(cauTruyVan);
         }
+        
         private String taoCauTruyVanHoanTac(String cheDo)
         {
             String cauTruyVan = "";
@@ -643,8 +675,9 @@ namespace QLVT
 
                             string maVatTu = txtMAVT.Text.Trim();
                             int soLuong = (int)txtSOLUONG.Value;
-
+                            
                             capNhatSoLuongVatTu(maVatTu, soLuong);
+                            
                         }
 
                         /*TH3: chinh sua phieu nhap -> chang co gi co the chinh sua
@@ -787,7 +820,7 @@ namespace QLVT
                 catch (Exception ex)
                 {
                     /*Step 4*/
-                    MessageBox.Show("Lỗi xóa nhân viên. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Lỗi xóa . Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.phieuNhapTableAdapter.Update(this.DS_SV1.PhieuNhap);
 
@@ -835,5 +868,49 @@ namespace QLVT
         {
 
         }
+
+        private void dONGIALabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDONGIA_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sOLUONGLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSOLUONG_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mAVTLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMAVT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void masoDDHLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMADDH_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        
+    
     }
 }

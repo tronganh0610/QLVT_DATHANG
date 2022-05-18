@@ -121,74 +121,82 @@
             // mAPXLabel
             // 
             mAPXLabel.AutoSize = true;
-            mAPXLabel.Location = new System.Drawing.Point(43, 30);
+            mAPXLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAPXLabel.Location = new System.Drawing.Point(34, 31);
             mAPXLabel.Name = "mAPXLabel";
-            mAPXLabel.Size = new System.Drawing.Size(45, 16);
+            mAPXLabel.Size = new System.Drawing.Size(123, 18);
             mAPXLabel.TabIndex = 20;
-            mAPXLabel.Text = "MAPX:";
+            mAPXLabel.Text = "Mã Phiếu Xuất :";
             // 
             // hOTENKHLabel
             // 
             hOTENKHLabel.AutoSize = true;
-            hOTENKHLabel.Location = new System.Drawing.Point(304, 76);
+            hOTENKHLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            hOTENKHLabel.Location = new System.Drawing.Point(331, 79);
             hOTENKHLabel.Name = "hOTENKHLabel";
-            hOTENKHLabel.Size = new System.Drawing.Size(67, 16);
+            hOTENKHLabel.Size = new System.Drawing.Size(93, 18);
             hOTENKHLabel.TabIndex = 21;
-            hOTENKHLabel.Text = "HOTENKH:";
+            hOTENKHLabel.Text = "Họ Tên KH :";
             // 
             // nGAYLabel
             // 
             nGAYLabel.AutoSize = true;
-            nGAYLabel.Location = new System.Drawing.Point(304, 30);
+            nGAYLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nGAYLabel.Location = new System.Drawing.Point(364, 34);
             nGAYLabel.Name = "nGAYLabel";
-            nGAYLabel.Size = new System.Drawing.Size(43, 16);
+            nGAYLabel.Size = new System.Drawing.Size(56, 18);
             nGAYLabel.TabIndex = 22;
-            nGAYLabel.Text = "NGAY:";
+            nGAYLabel.Text = "Ngày :";
             // 
             // mANVLabel
             // 
             mANVLabel.AutoSize = true;
-            mANVLabel.Location = new System.Drawing.Point(42, 79);
+            mANVLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mANVLabel.Location = new System.Drawing.Point(40, 79);
             mANVLabel.Name = "mANVLabel";
-            mANVLabel.Size = new System.Drawing.Size(46, 16);
+            mANVLabel.Size = new System.Drawing.Size(119, 18);
             mANVLabel.TabIndex = 23;
-            mANVLabel.Text = "MANV:";
+            mANVLabel.Text = "Mã Nhân Viên :";
             // 
             // mAKHOLabel
             // 
             mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(34, 125);
+            mAKHOLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAKHOLabel.Location = new System.Drawing.Point(80, 130);
             mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(54, 16);
+            mAKHOLabel.Size = new System.Drawing.Size(71, 18);
             mAKHOLabel.TabIndex = 24;
-            mAKHOLabel.Text = "MAKHO:";
+            mAKHOLabel.Text = "Mã Kho :";
             // 
             // mAVTLabel
             // 
             mAVTLabel.AutoSize = true;
+            mAVTLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mAVTLabel.Location = new System.Drawing.Point(42, 208);
             mAVTLabel.Name = "mAVTLabel";
-            mAVTLabel.Size = new System.Drawing.Size(46, 16);
+            mAVTLabel.Size = new System.Drawing.Size(91, 18);
             mAVTLabel.TabIndex = 25;
-            mAVTLabel.Text = "MAVT:";
+            mAVTLabel.Text = "Mã Vật Tư :";
             // 
             // sOLUONGLabel
             // 
             sOLUONGLabel.AutoSize = true;
-            sOLUONGLabel.Location = new System.Drawing.Point(20, 254);
+            sOLUONGLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            sOLUONGLabel.Location = new System.Drawing.Point(47, 258);
             sOLUONGLabel.Name = "sOLUONGLabel";
-            sOLUONGLabel.Size = new System.Drawing.Size(68, 16);
+            sOLUONGLabel.Size = new System.Drawing.Size(86, 18);
             sOLUONGLabel.TabIndex = 26;
-            sOLUONGLabel.Text = "SOLUONG:";
+            sOLUONGLabel.Text = "Số Lượng :";
             // 
             // dONGIALabel
             // 
             dONGIALabel.AutoSize = true;
-            dONGIALabel.Location = new System.Drawing.Point(31, 295);
+            dONGIALabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dONGIALabel.Location = new System.Drawing.Point(59, 299);
             dONGIALabel.Name = "dONGIALabel";
-            dONGIALabel.Size = new System.Drawing.Size(57, 16);
+            dONGIALabel.Size = new System.Drawing.Size(76, 18);
             dONGIALabel.TabIndex = 27;
-            dONGIALabel.Text = "DONGIA:";
+            dONGIALabel.Text = "Đơn Giá :";
             // 
             // barManager2
             // 
@@ -370,24 +378,26 @@
             // 
             this.cmbCHINHANH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCHINHANH.Enabled = false;
+            this.cmbCHINHANH.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCHINHANH.FormattingEnabled = true;
-            this.cmbCHINHANH.Location = new System.Drawing.Point(395, 21);
+            this.cmbCHINHANH.Location = new System.Drawing.Point(413, 20);
             this.cmbCHINHANH.Margin = new System.Windows.Forms.Padding(8);
             this.cmbCHINHANH.Name = "cmbCHINHANH";
-            this.cmbCHINHANH.Size = new System.Drawing.Size(362, 24);
+            this.cmbCHINHANH.Size = new System.Drawing.Size(362, 29);
             this.cmbCHINHANH.TabIndex = 3;
             this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(269, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 23);
+            this.label1.Size = new System.Drawing.Size(122, 21);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Chi Nhánh";
+            this.label1.Text = "CHI NHÁNH :";
             // 
             // panelControl1
             // 
@@ -454,6 +464,9 @@
             // 
             // colMAPX
             // 
+            this.colMAPX.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAPX.AppearanceHeader.Options.UseFont = true;
+            this.colMAPX.Caption = "Mã Phiếu Xuất";
             this.colMAPX.FieldName = "MAPX";
             this.colMAPX.MinWidth = 25;
             this.colMAPX.Name = "colMAPX";
@@ -463,6 +476,9 @@
             // 
             // colNGAY
             // 
+            this.colNGAY.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAY.AppearanceHeader.Options.UseFont = true;
+            this.colNGAY.Caption = "Ngày";
             this.colNGAY.FieldName = "NGAY";
             this.colNGAY.MinWidth = 25;
             this.colNGAY.Name = "colNGAY";
@@ -472,6 +488,9 @@
             // 
             // colHOTENKH
             // 
+            this.colHOTENKH.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHOTENKH.AppearanceHeader.Options.UseFont = true;
+            this.colHOTENKH.Caption = "Họ Tên Khách Hàng";
             this.colHOTENKH.FieldName = "HOTENKH";
             this.colHOTENKH.MinWidth = 25;
             this.colHOTENKH.Name = "colHOTENKH";
@@ -481,6 +500,9 @@
             // 
             // colMANV
             // 
+            this.colMANV.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMANV.AppearanceHeader.Options.UseFont = true;
+            this.colMANV.Caption = "Mã Nhân Viên";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 25;
             this.colMANV.Name = "colMANV";
@@ -490,6 +512,9 @@
             // 
             // colMAKHO
             // 
+            this.colMAKHO.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAKHO.AppearanceHeader.Options.UseFont = true;
+            this.colMAKHO.Caption = "Mã Kho";
             this.colMAKHO.FieldName = "MAKHO";
             this.colMAKHO.MinWidth = 25;
             this.colMAKHO.Name = "colMAKHO";
@@ -527,6 +552,9 @@
             // 
             // colMAPX1
             // 
+            this.colMAPX1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAPX1.AppearanceHeader.Options.UseFont = true;
+            this.colMAPX1.Caption = "Mã Phiếu Xuất";
             this.colMAPX1.FieldName = "MAPX";
             this.colMAPX1.MinWidth = 25;
             this.colMAPX1.Name = "colMAPX1";
@@ -536,6 +564,9 @@
             // 
             // colMAVT
             // 
+            this.colMAVT.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAVT.AppearanceHeader.Options.UseFont = true;
+            this.colMAVT.Caption = "Mã Vật Tư";
             this.colMAVT.FieldName = "MAVT";
             this.colMAVT.MinWidth = 25;
             this.colMAVT.Name = "colMAVT";
@@ -545,6 +576,9 @@
             // 
             // colSOLUONG
             // 
+            this.colSOLUONG.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSOLUONG.AppearanceHeader.Options.UseFont = true;
+            this.colSOLUONG.Caption = "Số Lượng";
             this.colSOLUONG.FieldName = "SOLUONG";
             this.colSOLUONG.MinWidth = 25;
             this.colSOLUONG.Name = "colSOLUONG";
@@ -554,6 +588,11 @@
             // 
             // colDONGIA
             // 
+            this.colDONGIA.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDONGIA.AppearanceHeader.Options.UseFont = true;
+            this.colDONGIA.Caption = "Đơn Giá";
+            this.colDONGIA.DisplayFormat.FormatString = "n0";
+            this.colDONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDONGIA.FieldName = "DONGIA";
             this.colDONGIA.MinWidth = 25;
             this.colDONGIA.Name = "colDONGIA";
@@ -563,12 +602,14 @@
             // 
             // btnChonKhoHang
             // 
-            this.btnChonKhoHang.Location = new System.Drawing.Point(307, 114);
+            this.btnChonKhoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnChonKhoHang.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChonKhoHang.Location = new System.Drawing.Point(367, 114);
             this.btnChonKhoHang.Name = "btnChonKhoHang";
             this.btnChonKhoHang.Size = new System.Drawing.Size(172, 48);
             this.btnChonKhoHang.TabIndex = 10;
             this.btnChonKhoHang.Text = "Chọn Kho Hàng";
-            this.btnChonKhoHang.UseVisualStyleBackColor = true;
+            this.btnChonKhoHang.UseVisualStyleBackColor = false;
             this.btnChonKhoHang.Click += new System.EventHandler(this.btnChonKhoHang_Click);
             // 
             // separatorControl1
@@ -580,12 +621,14 @@
             // 
             // btnChonVatTu
             // 
-            this.btnChonVatTu.Location = new System.Drawing.Point(331, 230);
+            this.btnChonVatTu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnChonVatTu.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChonVatTu.Location = new System.Drawing.Point(383, 234);
             this.btnChonVatTu.Name = "btnChonVatTu";
             this.btnChonVatTu.Size = new System.Drawing.Size(185, 64);
             this.btnChonVatTu.TabIndex = 20;
             this.btnChonVatTu.Text = "Chọn Vật Tư";
-            this.btnChonVatTu.UseVisualStyleBackColor = true;
+            this.btnChonVatTu.UseVisualStyleBackColor = false;
             this.btnChonVatTu.Click += new System.EventHandler(this.btnChonVatTu_Click);
             // 
             // panelControl2
@@ -623,12 +666,18 @@
             0,
             0,
             0});
-            this.txtDonGia.Location = new System.Drawing.Point(115, 291);
+            this.txtDonGia.Location = new System.Drawing.Point(160, 292);
             this.txtDonGia.MenuManager = this.barManager2;
             this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDonGia.Properties.Appearance.Options.UseFont = true;
             this.txtDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtDonGia.Size = new System.Drawing.Size(143, 24);
+            this.txtDonGia.Properties.DisplayFormat.FormatString = "n0";
+            this.txtDonGia.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDonGia.Properties.EditFormat.FormatString = "n0";
+            this.txtDonGia.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDonGia.Size = new System.Drawing.Size(143, 28);
             this.txtDonGia.TabIndex = 28;
             // 
             // txtSoLuong
@@ -639,73 +688,83 @@
             0,
             0,
             0});
-            this.txtSoLuong.Location = new System.Drawing.Point(115, 250);
+            this.txtSoLuong.Location = new System.Drawing.Point(160, 251);
             this.txtSoLuong.MenuManager = this.barManager2;
             this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuong.Properties.Appearance.Options.UseFont = true;
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtSoLuong.Size = new System.Drawing.Size(143, 24);
+            this.txtSoLuong.Size = new System.Drawing.Size(143, 28);
             this.txtSoLuong.TabIndex = 27;
             // 
             // txtMaVT
             // 
             this.txtMaVT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsCTPX, "MAVT", true));
-            this.txtMaVT.Location = new System.Drawing.Point(115, 205);
+            this.txtMaVT.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaVT.Location = new System.Drawing.Point(160, 201);
             this.txtMaVT.Name = "txtMaVT";
-            this.txtMaVT.Size = new System.Drawing.Size(143, 23);
+            this.txtMaVT.Size = new System.Drawing.Size(143, 28);
             this.txtMaVT.TabIndex = 26;
             // 
             // txtMaKho
             // 
             this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MAKHO", true));
-            this.txtMaKho.Location = new System.Drawing.Point(94, 122);
+            this.txtMaKho.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaKho.Location = new System.Drawing.Point(176, 125);
             this.txtMaKho.Name = "txtMaKho";
-            this.txtMaKho.Size = new System.Drawing.Size(136, 23);
+            this.txtMaKho.Size = new System.Drawing.Size(136, 28);
             this.txtMaKho.TabIndex = 25;
             // 
             // txtMaNV
             // 
             this.txtMaNV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MANV", true));
-            this.txtMaNV.Location = new System.Drawing.Point(94, 76);
+            this.txtMaNV.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaNV.Location = new System.Drawing.Point(176, 74);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(136, 23);
+            this.txtMaNV.Size = new System.Drawing.Size(136, 28);
             this.txtMaNV.TabIndex = 24;
             // 
             // deNgay
             // 
             this.deNgay.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPhieuXuat, "NGAY", true));
             this.deNgay.EditValue = null;
-            this.deNgay.Location = new System.Drawing.Point(377, 24);
+            this.deNgay.Location = new System.Drawing.Point(439, 24);
             this.deNgay.MenuManager = this.barManager2;
             this.deNgay.Name = "deNgay";
+            this.deNgay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deNgay.Properties.Appearance.Options.UseFont = true;
             this.deNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgay.Size = new System.Drawing.Size(139, 22);
+            this.deNgay.Size = new System.Drawing.Size(139, 28);
             this.deNgay.TabIndex = 23;
             // 
             // txtHoTenKH
             // 
             this.txtHoTenKH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "HOTENKH", true));
-            this.txtHoTenKH.Location = new System.Drawing.Point(377, 73);
+            this.txtHoTenKH.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTenKH.Location = new System.Drawing.Point(439, 72);
             this.txtHoTenKH.Name = "txtHoTenKH";
-            this.txtHoTenKH.Size = new System.Drawing.Size(191, 23);
+            this.txtHoTenKH.Size = new System.Drawing.Size(191, 28);
             this.txtHoTenKH.TabIndex = 22;
             // 
             // txtMAPX
             // 
             this.txtMAPX.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MAPX", true));
-            this.txtMAPX.Location = new System.Drawing.Point(94, 27);
+            this.txtMAPX.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAPX.Location = new System.Drawing.Point(176, 26);
             this.txtMAPX.Name = "txtMAPX";
-            this.txtMAPX.Size = new System.Drawing.Size(136, 23);
+            this.txtMAPX.Size = new System.Drawing.Size(136, 28);
             this.txtMAPX.TabIndex = 21;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(521, 111);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(522, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 21);
             this.label2.TabIndex = 15;
@@ -715,7 +774,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1156, 322);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(1157, 322);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(197, 21);
             this.label3.TabIndex = 16;

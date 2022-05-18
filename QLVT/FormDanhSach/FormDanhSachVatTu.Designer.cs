@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.VattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DS_SV1 = new QLVT.DS_SV1();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -72,9 +72,9 @@
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "VatTu";
-            reportDataSource1.Value = this.VattuBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource2.Name = "VatTu";
+            reportDataSource2.Value = this.VattuBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QLVT.Report.RpVatTu.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(-420, 389);
             this.reportViewer1.Name = "reportViewer1";
@@ -87,10 +87,10 @@
             this.btnInDanhSach.BackColor = System.Drawing.Color.DarkGray;
             this.btnInDanhSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInDanhSach.ForeColor = System.Drawing.Color.Black;
-            this.btnInDanhSach.Location = new System.Drawing.Point(458, 287);
+            this.btnInDanhSach.Location = new System.Drawing.Point(477, 287);
             this.btnInDanhSach.Margin = new System.Windows.Forms.Padding(4);
             this.btnInDanhSach.Name = "btnInDanhSach";
-            this.btnInDanhSach.Size = new System.Drawing.Size(259, 44);
+            this.btnInDanhSach.Size = new System.Drawing.Size(236, 44);
             this.btnInDanhSach.TabIndex = 4;
             this.btnInDanhSach.Text = "XUẤT FILE PDF";
             this.btnInDanhSach.UseVisualStyleBackColor = false;
@@ -101,10 +101,10 @@
             this.btnXemTruoc.BackColor = System.Drawing.Color.DarkGray;
             this.btnXemTruoc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXemTruoc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnXemTruoc.Location = new System.Drawing.Point(56, 287);
+            this.btnXemTruoc.Location = new System.Drawing.Point(147, 287);
             this.btnXemTruoc.Margin = new System.Windows.Forms.Padding(4);
             this.btnXemTruoc.Name = "btnXemTruoc";
-            this.btnXemTruoc.Size = new System.Drawing.Size(313, 44);
+            this.btnXemTruoc.Size = new System.Drawing.Size(260, 44);
             this.btnXemTruoc.TabIndex = 3;
             this.btnXemTruoc.Text = "XEM DANH SÁCH VẬT TƯ";
             this.btnXemTruoc.UseVisualStyleBackColor = false;
@@ -115,7 +115,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(222, 117);
+            this.label1.Location = new System.Drawing.Point(251, 126);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(347, 40);

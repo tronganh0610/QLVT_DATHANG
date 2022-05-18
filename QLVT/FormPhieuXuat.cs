@@ -160,6 +160,7 @@ namespace QLVT
             this.btnChonKhoHang.Enabled = true;
             phieuXuatGridControl.Enabled = true;
             cTPXGridControl.Enabled = false;
+            panelControl2.Enabled = true;
 
             /*Tat chuc nang cua chi tiet phieu nhap*/
             txtMaVT.Enabled = false;
@@ -171,7 +172,7 @@ namespace QLVT
             bool turnOn = (bdsPhieuXuat.Count > 0) ? true : false;
             this.btnXoa.Enabled = turnOn;
             this.btnGhi.Enabled = true;
-
+            panelControl2.Enabled = true;
             this.btnPhucHoi.Enabled = true;
             this.btnReload.Enabled = true;
             this.btnCheDo.Enabled = true;
@@ -233,18 +234,20 @@ namespace QLVT
             this.btnChonKhoHang.Enabled = false;
             phieuXuatGridControl.Enabled = true;
             cTPXGridControl.Enabled = true;
+            
 
             /*Tat chuc nang cua chi tiet phieu nhap*/
             txtMaVT.Enabled = true;
             txtSoLuong.Enabled = true;
             txtDonGia.Enabled = true;
             btnChonVatTu.Enabled = true;
-            
+            panelControl2.Enabled = true;
+
 
             this.btnThem.Enabled = true;
             bool turnOn = (bdsCTPX.Count > 0) ? true : false;
             this.btnXoa.Enabled = turnOn;
-            this.btnGhi.Enabled = false;
+            this.btnGhi.Enabled = true;
 
             this.btnPhucHoi.Enabled = true;
             this.btnReload.Enabled = true;
@@ -325,8 +328,37 @@ namespace QLVT
         {
             try
             {
+                // do du lieu moi tu dataSet vao gridControl NHANVIEN
                 this.phieuXuatTableAdapter.Fill(this.DS_SV1.PhieuXuat);
                 this.cTPXTableAdapter.Fill(this.DS_SV1.CTPX);
+
+
+                string cheDo = (btnCheDo.Links[0].Caption == "Phiếu Xuất") ? "Phiếu Xuất" : "Chi Tiết Phiếu Xuất";
+                if (cheDo == "Phiếu Xuất")
+                {
+                    this.txtMAPX.Enabled = false;
+                    this.txtMaNV.Enabled = true;
+                    this.deNgay.Enabled = true;
+                    this.txtHoTenKH.Enabled = true;
+                    this.btnChonKhoHang.Enabled = true;
+                    phieuXuatGridControl.Enabled = true;
+                    cTPXGridControl.Enabled = false;
+                    panelControl2.Enabled = true;
+                    bdsPhieuXuat.Position = viTri;
+
+                }
+                if (cheDo == "Chi Tiết Phiếu Xuất")
+                {
+                    txtMaVT.Enabled = true;
+                    txtSoLuong.Enabled = true;
+                    txtDonGia.Enabled = true;
+                    btnChonVatTu.Enabled = true;
+                    panelControl2.Enabled = true;
+                    bdsCTPX.Position = viTri;
+
+
+                }
+
             }
             catch (Exception ex)
             {
@@ -565,8 +597,6 @@ namespace QLVT
         private void capNhatSoLuongVatTu(string maVatTu, int soLuong)
         {
             string cauTruyVan = "EXEC sp_CapNhatSoLuongVatTu 'EXPORT','" + maVatTu + "', " + soLuong;
-
-
             int n = Program.ExecSqlNonQuery(cauTruyVan);
             //Console.WriteLine("Line 536");
             //Console.WriteLine(cauTruyVan);
@@ -753,7 +783,6 @@ namespace QLVT
                     return;
                 }
 
-
                 drv = ((DataRowView)bdsCTPX[bdsCTPX.Position]);
                 cauTruyVanHoanTac = "INSERT INTO DBO.CTPX(MAPX, MAVT, SOLUONG, DONGIA) " +
                     "VALUES('" + drv["MAPX"].ToString().Trim() + "', '" +
@@ -779,7 +808,7 @@ namespace QLVT
                     {
                         bdsPhieuXuat.RemoveCurrent();
                     }
-                    if (cheDo == "Chi Tiết Phiếu Nhập")
+                    if (cheDo == "Chi Tiết Phiếu Xuất")
                     {
                         bdsCTPX.RemoveCurrent();
                     }
@@ -800,7 +829,7 @@ namespace QLVT
                 catch (Exception ex)
                 {
                     /*Step 4*/
-                    MessageBox.Show("Lỗi xóa nhân viên. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Lỗi xóa . Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.phieuXuatTableAdapter.Update(this.DS_SV1.PhieuXuat);
 

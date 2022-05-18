@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraGrid;
+using QLVT.FormDanhSach;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -167,6 +168,7 @@ namespace QLVT
             txtMaNV.Enabled = true;
             txtMaKho.Enabled = true;
             btnChonKhoHang.Enabled = true;
+            panelControl2.Enabled = true;
 
             /*Tat chuc nang cua chi tiet don hang*/
             txtMaVT.Enabled = false;
@@ -216,7 +218,7 @@ namespace QLVT
             btnChonVatTu.Enabled = true;
             txtSoLuong.Enabled = true;
             txtDonGia.Enabled = true;
-
+            panelControl2.Enabled = true;
             /*Bat cac grid control len*/
             datHangGridControl.Enabled = true;
             cTDDHGridControl.Enabled = true;
@@ -681,13 +683,31 @@ namespace QLVT
                 {
                     this.datHangGridControl.Enabled = true;
                     this.cTDDHGridControl.Enabled = false;
+                    txtMaDDH.Enabled = true;
+                    deNgay.Enabled = true;
+                    txtNhaCC.Enabled = true;
+                    txtMaNV.Enabled = true;
+                    txtMaKho.Enabled = true;
+                    btnChonKhoHang.Enabled = true;
+                    panelControl2.Enabled = true;
+                    bdsDatHang.Position = viTri;
+
                 }
                 if (cheDo == "Chi Tiết Đơn Đặt Hàng")
                 {
                     this.datHangGridControl.Enabled = false;
                     this.cTDDHGridControl.Enabled = true;
+                    txtMaVT.Enabled = true;
+                    btnChonVatTu.Enabled = true;
+                    txtSoLuong.Enabled = true;
+                    txtDonGia.Enabled = true;
+                    panelControl2.Enabled = true;
+                    /*Bat cac grid control len*/
+                    bdsCTDDH.Position = viTri;
+                    
+                   
                 }
-                bdsDatHang.Position = viTri;
+                
             }
             catch (Exception ex)
             {
@@ -853,6 +873,23 @@ namespace QLVT
         private void separatorControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        
+
+        private void btnDHChuaPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormDonHangChuaCoPhieuNhap));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDonHangChuaCoPhieuNhap form = new FormDonHangChuaCoPhieuNhap();
+                
+                form.ShowDialog();
+            }
         }
     }
 

@@ -46,10 +46,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(602, 104);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(647, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(810, 36);
+            this.label1.Size = new System.Drawing.Size(814, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "CHI TIẾT SỐ LƯỢNG TRỊ GIÁ HÀNG HÓA NHẬP XUẤT";
             // 
@@ -57,7 +58,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(740, 214);
+            this.label2.Location = new System.Drawing.Point(785, 215);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 25);
             this.label2.TabIndex = 4;
@@ -67,7 +68,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(669, 287);
+            this.label3.Location = new System.Drawing.Point(714, 288);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 25);
             this.label3.TabIndex = 5;
@@ -77,7 +78,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(975, 284);
+            this.label4.Location = new System.Drawing.Point(1020, 285);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 25);
             this.label4.TabIndex = 6;
@@ -87,7 +88,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(755, 421);
+            this.button1.Location = new System.Drawing.Point(800, 422);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 36);
             this.button1.TabIndex = 7;
@@ -99,7 +100,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1034, 421);
+            this.button2.Location = new System.Drawing.Point(1079, 422);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(135, 36);
             this.button2.TabIndex = 8;
@@ -110,7 +111,7 @@
             // dateEditNgayBatDau
             // 
             this.dateEditNgayBatDau.EditValue = null;
-            this.dateEditNgayBatDau.Location = new System.Drawing.Point(784, 288);
+            this.dateEditNgayBatDau.Location = new System.Drawing.Point(829, 289);
             this.dateEditNgayBatDau.Name = "dateEditNgayBatDau";
             this.dateEditNgayBatDau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -124,7 +125,7 @@
             // dateEditNgayKetThuc
             // 
             this.dateEditNgayKetThuc.EditValue = null;
-            this.dateEditNgayKetThuc.Location = new System.Drawing.Point(1095, 287);
+            this.dateEditNgayKetThuc.Location = new System.Drawing.Point(1140, 288);
             this.dateEditNgayKetThuc.Name = "dateEditNgayKetThuc";
             this.dateEditNgayKetThuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -139,7 +140,7 @@
             this.cmbLoaiPhieu.Items.AddRange(new object[] {
             "NHAP",
             "XUAT"});
-            this.cmbLoaiPhieu.Location = new System.Drawing.Point(909, 215);
+            this.cmbLoaiPhieu.Location = new System.Drawing.Point(954, 216);
             this.cmbLoaiPhieu.Name = "cmbLoaiPhieu";
             this.cmbLoaiPhieu.Size = new System.Drawing.Size(210, 24);
             this.cmbLoaiPhieu.TabIndex = 11;

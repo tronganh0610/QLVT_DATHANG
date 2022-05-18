@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,9 +56,21 @@ namespace QLVT
                 MessageBox.Show("Thiếu Mã Nhân Viên", "Thông báo", MessageBoxButtons.OK);
                 return false;
             }
+            if (Regex.IsMatch(txtMaNV.Text, @"^[a-zA-Z0-9]+$") == false)
+            {
+                MessageBox.Show("Mã nhân viên chỉ chấp nhận số", "Thông báo", MessageBoxButtons.OK);
+                txtMaNV.Focus();
+                return false;
+            }
             if (txtLogin.Text == "")
             {
                 MessageBox.Show("Thiếu Tên Đăng Nhập", "Thông báo", MessageBoxButtons.OK);
+                return false;
+            }
+            if(Regex.IsMatch(txtLogin.Text, @"^[a-zA-Z0-9]+$") == false)
+            {
+                MessageBox.Show("Mã nhân viên chỉ chấp nhận số", "Thông báo", MessageBoxButtons.OK);
+                txtLogin.Focus();
                 return false;
             }
             if (txtPassword.Text == "")
@@ -65,8 +78,12 @@ namespace QLVT
                 MessageBox.Show("Thiếu Mật Khẩu", "Thông báo", MessageBoxButtons.OK);
                 return false;
             }
-
-            
+            if(Regex.IsMatch(txtPassword.Text, @"^[a-zA-Z0-9]+$") == false)
+            {
+                MessageBox.Show("Mã nhân viên chỉ chấp nhận số", "Thông báo", MessageBoxButtons.OK);
+                txtPassword.Focus();
+                return false;
+            }
 
             return true;
         }

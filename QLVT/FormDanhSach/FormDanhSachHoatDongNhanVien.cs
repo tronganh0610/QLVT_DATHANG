@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,57 @@ namespace QLVT.FormDanhSach
 
             ReportPrintTool printTool = new ReportPrintTool(ds);
             printTool.ShowPreviewDialog();
+        }
+
+        private void txtMaNV_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbLoaiPhieu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime ngayBatDau = dateEditNgayBatDau.DateTime;
+                DateTime denNgay = dateEditNgayKetThuc.DateTime;
+
+                ChiTietSoLuongTriGiaHangHoaNhapXuat report = new ChiTietSoLuongTriGiaHangHoaNhapXuat(txtMaNV.Text, cmbLoaiPhieu.SelectedItem.ToString(), ngayBatDau, denNgay);
+
+                /*GAN TEN CHI NHANH CHO BAO CAO*/
+                report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString().ToUpper();
+                report.txtNgayBatDau.Text = ngayBatDau.ToString("MM / dd / yyyy");
+                report.txtNgayKetThuc.Text = denNgay.ToString("MM / dd / yyyy");
+
+                if (File.Exists(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachHoatDongCuaNhanVien.pdf"))
+                {
+                    DialogResult dr = MessageBox.Show("File DanhSachHoatDongCuaNhanVien.pdf tại thư mục ExportPDF đã có!\nBạn có muốn tạo lại?",
+                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Yes)
+                    {
+                        report.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachHoatDongCuaNhanVien.pdf");
+                        MessageBox.Show("File DanhSachHoatDongCuaNhanVien.pdf đã được ghi thành công tại thư mục ExportPDF",
+                "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                else
+                {
+                    report.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachHoatDongCuaNhanVien.pdf");
+                    MessageBox.Show("File DanhSachHoatDongCuaNhanVien.pdf đã được ghi thành công tại thư mục ExportPDF",
+                "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Vui lòng đóng file DanhSachHoatDongCuaNhanVien.pdf",
+                    "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                return;
+            }
         }
     }
 }
