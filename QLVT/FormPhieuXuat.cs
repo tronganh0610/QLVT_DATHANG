@@ -86,7 +86,6 @@ namespace QLVT
             /*không kiểm tra khóa ngoại nữa*/
             DS_SV1.EnforceConstraints = false;
 
-
             this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
             this.cTPXTableAdapter.Fill(this.DS_SV1.CTPX);
 
@@ -157,7 +156,7 @@ namespace QLVT
             this.txtMaNV.Enabled = true;
             this.deNgay.Enabled = true;
             this.txtHoTenKH.Enabled = true;
-            this.btnChonKhoHang.Enabled = true;
+            this.btnChonKhoHang.Enabled = false;
             phieuXuatGridControl.Enabled = true;
             cTPXGridControl.Enabled = false;
             panelControl2.Enabled = true;
@@ -240,7 +239,7 @@ namespace QLVT
             txtMaVT.Enabled = true;
             txtSoLuong.Enabled = true;
             txtDonGia.Enabled = true;
-            btnChonVatTu.Enabled = true;
+            btnChonVatTu.Enabled = false;
             panelControl2.Enabled = true;
 
 

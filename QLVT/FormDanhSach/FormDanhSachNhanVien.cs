@@ -131,7 +131,7 @@ namespace QLVT
        
         private void exportPDF()
         {
-            if (cmbChiNhanh.SelectedIndex != Program.brand)
+            if (cmbChiNhanh.SelectedIndex == 0)
             {
                 try
                 {
@@ -163,7 +163,7 @@ namespace QLVT
                     return;
                 }
             }
-            if (cmbChiNhanh.SelectedIndex == Program.brand)
+            if (cmbChiNhanh.SelectedIndex == 1)
             {
                 try
                 {

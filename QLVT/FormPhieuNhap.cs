@@ -205,7 +205,7 @@ namespace QLVT
             this.deNGAY.Enabled = true;
             this.txtMANV.Enabled = true;
             this.txtMAKHO.Enabled = true;
-            this.btnChonDonHang.Enabled = true;
+            this.btnChonDonHang.Enabled = false;
             phieuNhapGridControl.Enabled = true;
             cTPNGridControl.Enabled = false;
             panelControl2.Enabled = true;
@@ -252,7 +252,7 @@ namespace QLVT
             txtMADDH.Enabled = true;
             txtSOLUONG.Enabled = true;
             txtDONGIA.Enabled = true;
-            btnChonChiTietDonHang.Enabled=true;
+            btnChonChiTietDonHang.Enabled=false;
             phieuNhapGridControl.Enabled = true;
             cTPNGridControl.Enabled = true;
             panelControl2.Enabled = true;

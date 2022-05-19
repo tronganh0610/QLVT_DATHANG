@@ -102,12 +102,15 @@ namespace QLVT.FormDanhSach
                 DateTime ngayBatDau = dateEditNgayBatDau.DateTime;
                 DateTime denNgay = dateEditNgayKetThuc.DateTime;
 
-                ChiTietSoLuongTriGiaHangHoaNhapXuat report = new ChiTietSoLuongTriGiaHangHoaNhapXuat(txtMaNV.Text, cmbLoaiPhieu.SelectedItem.ToString(), ngayBatDau, denNgay);
+                DanhSachHoatDongNhanVien ds = new DanhSachHoatDongNhanVien(txtMaNV.Text, cmbLoaiPhieu.SelectedItem.ToString(), ngayBatDau, denNgay);
 
                 /*GAN TEN CHI NHANH CHO BAO CAO*/
-                report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString().ToUpper();
-                report.txtNgayBatDau.Text = ngayBatDau.ToString("MM / dd / yyyy");
-                report.txtNgayKetThuc.Text = denNgay.ToString("MM / dd / yyyy");
+                ds.txtMANV.Text = this.txtMaNV.Text;
+                ds.txtMACN.Text = this.cmbChiNhanh.Text;
+                ds.txtTENNV.Text = this.txtHoTen.Text;
+                ds.txtLOAIPHIEU.Text = this.cmbLoaiPhieu.SelectedItem.ToString();
+                ds.txtNGAY1.Text = ngayBatDau.ToString("dd / MM / yyyy");
+                ds.txtNGAY2.Text = denNgay.ToString("dd / MM / yyyy");
 
                 if (File.Exists(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachHoatDongCuaNhanVien.pdf"))
                 {
@@ -115,7 +118,7 @@ namespace QLVT.FormDanhSach
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-                        report.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachHoatDongCuaNhanVien.pdf");
+                        ds.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachHoatDongCuaNhanVien.pdf");
                         MessageBox.Show("File DanhSachHoatDongCuaNhanVien.pdf đã được ghi thành công tại thư mục ExportPDF",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -123,7 +126,7 @@ namespace QLVT.FormDanhSach
                 }
                 else
                 {
-                    report.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachHoatDongCuaNhanVien.pdf");
+                    ds.ExportToPdf(@"C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\ExportPDF\DanhSachHoatDongCuaNhanVien.pdf");
                     MessageBox.Show("File DanhSachHoatDongCuaNhanVien.pdf đã được ghi thành công tại thư mục ExportPDF",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

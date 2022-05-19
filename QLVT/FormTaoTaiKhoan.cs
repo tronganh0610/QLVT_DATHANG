@@ -30,15 +30,17 @@ namespace QLVT
                 vaiTro = "CongTy";
                 checkCongTy.Checked = true;
                 checkCongTy.Enabled = false;
-                checkChiNhanh.Enabled= false;
-                checkUser.Enabled = false;  
+                checkChiNhanh.Visible= false;
+                checkUser.Visible = false;  
+                label5.Visible = false;
             }
             if (Program.role == "ChiNhanh")
             {
-                checkCongTy.Checked = false;
-                checkCongTy.Enabled = false;
+                
+                checkCongTy.Visible = false;
                 checkChiNhanh.Enabled = true;
                 checkUser.Enabled = true;
+                checkChiNhanh.Checked = true;
                 
 
             }

@@ -167,7 +167,7 @@ namespace QLVT
             txtNhaCC.Enabled = true;
             txtMaNV.Enabled = true;
             txtMaKho.Enabled = true;
-            btnChonKhoHang.Enabled = true;
+            btnChonKhoHang.Enabled = false;
             panelControl2.Enabled = true;
 
             /*Tat chuc nang cua chi tiet don hang*/
@@ -215,7 +215,7 @@ namespace QLVT
 
             /*Tat chuc nang cua chi tiet don hang*/
             txtMaVT.Enabled = true;
-            btnChonVatTu.Enabled = true;
+            btnChonVatTu.Enabled = false;
             txtSoLuong.Enabled = true;
             txtDonGia.Enabled = true;
             panelControl2.Enabled = true;
@@ -890,6 +890,11 @@ namespace QLVT
                 
                 form.ShowDialog();
             }
+        }
+
+        private void datHangGridControl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -85,6 +85,7 @@
             this.btnCheDo = new DevExpress.XtraBars.BarSubItem();
             this.btnCheDoDonDatHang = new DevExpress.XtraBars.BarButtonItem();
             this.btnCheDoCTDDH = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDHChuaPhieuNhap = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -96,7 +97,6 @@
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnDHChuaPhieuNhap = new DevExpress.XtraBars.BarButtonItem();
             nGAYLabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
@@ -297,6 +297,7 @@
             this.datHangGridControl.TabIndex = 5;
             this.datHangGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.datHangGridControl.Click += new System.EventHandler(this.datHangGridControl_Click);
             // 
             // gridView1
             // 
@@ -723,6 +724,15 @@
             this.btnCheDoCTDDH.Name = "btnCheDoCTDDH";
             this.btnCheDoCTDDH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCheDoCTDDH_ItemClick);
             // 
+            // btnDHChuaPhieuNhap
+            // 
+            this.btnDHChuaPhieuNhap.Caption = "Đơn Hàng Chưa Có Phiếu Nhập";
+            this.btnDHChuaPhieuNhap.Id = 13;
+            this.btnDHChuaPhieuNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDHChuaPhieuNhap.ImageOptions.Image")));
+            this.btnDHChuaPhieuNhap.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDHChuaPhieuNhap.ImageOptions.LargeImage")));
+            this.btnDHChuaPhieuNhap.Name = "btnDHChuaPhieuNhap";
+            this.btnDHChuaPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDHChuaPhieuNhap_ItemClick);
+            // 
             // btnThoat
             // 
             this.btnThoat.Caption = "Thoát";
@@ -813,15 +823,6 @@
             this.label5.Size = new System.Drawing.Size(226, 21);
             this.label5.TabIndex = 14;
             this.label5.Text = "CHI TIẾT ĐƠN ĐẶT HÀNG";
-            // 
-            // btnDHChuaPhieuNhap
-            // 
-            this.btnDHChuaPhieuNhap.Caption = "Đơn Hàng Chưa Có Phiếu Nhập";
-            this.btnDHChuaPhieuNhap.Id = 13;
-            this.btnDHChuaPhieuNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDHChuaPhieuNhap.ImageOptions.Image")));
-            this.btnDHChuaPhieuNhap.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDHChuaPhieuNhap.ImageOptions.LargeImage")));
-            this.btnDHChuaPhieuNhap.Name = "btnDHChuaPhieuNhap";
-            this.btnDHChuaPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDHChuaPhieuNhap_ItemClick);
             // 
             // FormDonDatHang
             // 
