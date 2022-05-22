@@ -74,7 +74,6 @@
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnChonChiTietDonHang = new System.Windows.Forms.Button();
-            this.txtDONGIA = new DevExpress.XtraEditors.SpinEdit();
             this.bdsCTPN = new System.Windows.Forms.BindingSource(this.components);
             this.txtSOLUONG = new DevExpress.XtraEditors.SpinEdit();
             this.txtMAVT = new System.Windows.Forms.TextBox();
@@ -93,6 +92,7 @@
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDONGIA = new DevExpress.XtraEditors.SpinEdit();
             mAPNLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
             masoDDHLabel = new System.Windows.Forms.Label();
@@ -111,7 +111,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDONGIA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSOLUONG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -119,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deNGAY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDONGIA.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mAPNLabel
@@ -578,29 +578,6 @@
             this.btnChonChiTietDonHang.UseVisualStyleBackColor = false;
             this.btnChonChiTietDonHang.Click += new System.EventHandler(this.btnChonChiTietDonHang_Click);
             // 
-            // txtDONGIA
-            // 
-            this.txtDONGIA.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPN, "DONGIA", true));
-            this.txtDONGIA.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtDONGIA.Location = new System.Drawing.Point(148, 312);
-            this.txtDONGIA.MenuManager = this.barManager2;
-            this.txtDONGIA.Name = "txtDONGIA";
-            this.txtDONGIA.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDONGIA.Properties.Appearance.Options.UseFont = true;
-            this.txtDONGIA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtDONGIA.Properties.DisplayFormat.FormatString = "n0";
-            this.txtDONGIA.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtDONGIA.Properties.EditFormat.FormatString = "n0";
-            this.txtDONGIA.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtDONGIA.Size = new System.Drawing.Size(142, 28);
-            this.txtDONGIA.TabIndex = 19;
-            this.txtDONGIA.EditValueChanged += new System.EventHandler(this.txtDONGIA_EditValueChanged);
-            // 
             // bdsCTPN
             // 
             this.bdsCTPN.DataMember = "FK_CTPN_PhieuNhap";
@@ -798,6 +775,29 @@
             this.labelControl2.TabIndex = 15;
             this.labelControl2.Text = "CHI TIẾT PHIẾU NHẬP";
             // 
+            // txtDONGIA
+            // 
+            this.txtDONGIA.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPN, "DONGIA", true));
+            this.txtDONGIA.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtDONGIA.Location = new System.Drawing.Point(148, 312);
+            this.txtDONGIA.MenuManager = this.barManager2;
+            this.txtDONGIA.Name = "txtDONGIA";
+            this.txtDONGIA.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDONGIA.Properties.Appearance.Options.UseFont = true;
+            this.txtDONGIA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDONGIA.Properties.DisplayFormat.FormatString = "n0";
+            this.txtDONGIA.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDONGIA.Properties.EditFormat.FormatString = "n0";
+            this.txtDONGIA.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDONGIA.Size = new System.Drawing.Size(142, 28);
+            this.txtDONGIA.TabIndex = 19;
+            this.txtDONGIA.EditValueChanged += new System.EventHandler(this.txtDONGIA_EditValueChanged);
+            // 
             // FormPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -828,7 +828,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDONGIA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSOLUONG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
@@ -836,6 +835,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deNGAY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDONGIA.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -884,7 +884,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
         private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
         private System.Windows.Forms.Button btnChonChiTietDonHang;
-        private DevExpress.XtraEditors.SpinEdit txtDONGIA;
         private DevExpress.XtraEditors.SpinEdit txtSOLUONG;
         private System.Windows.Forms.TextBox txtMAVT;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
@@ -898,5 +897,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch repositoryItemToggleSwitch1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.SpinEdit txtDONGIA;
     }
 }

@@ -109,7 +109,7 @@ namespace QLVT
         public static int soLuongVatTu = 0;
         public static string maDonDatHangDuocChon = "";
         public static string maDonDatHangDuocChonChiTiet = "";
-        public static int donGia = 0;
+        public static float donGia = 0;
 
 
 

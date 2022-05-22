@@ -157,6 +157,8 @@
             // 
             // colSOLUONG
             // 
+            this.colSOLUONG.DisplayFormat.FormatString = "n0";
+            this.colSOLUONG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSOLUONG.FieldName = "SOLUONG";
             this.colSOLUONG.MinWidth = 25;
             this.colSOLUONG.Name = "colSOLUONG";

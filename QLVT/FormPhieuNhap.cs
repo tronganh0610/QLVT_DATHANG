@@ -310,6 +310,7 @@ namespace QLVT
                     bdsCTPN.RemoveCurrent();
                     return;
                 }
+                this.txtMAPN.Enabled = false;
                 this.txtMADDH.Enabled = false;
                 this.txtMAVT.Enabled = false;
                 this.txtMAVT.Text = "";
@@ -467,7 +468,7 @@ namespace QLVT
 
             bdsPhieuNhap.Position = viTri;
         }
-        private void capNhatSoLuongVatTu(string maVatTu, int soLuong)
+        private void capNhatSoLuongVatTu(string maVatTu, float soLuong)
         {
             string cauTruyVan = "EXEC sp_CapNhatSoLuongVatTu 'IMPORT','" + maVatTu + "', " + soLuong;
             int n = Program.ExecSqlNonQuery(cauTruyVan);
@@ -636,7 +637,6 @@ namespace QLVT
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
             Program.myReader.Close();
 
-
             /*Step 5*/
             int viTriConTro = bdsPhieuNhap.Position;
             int viTriMaPhieuNhap = bdsPhieuNhap.Find("MAPN", maPhieuNhap);
@@ -660,21 +660,17 @@ namespace QLVT
                         /*TH1: them moi phieu nhap*/
                         if (cheDo == "Phiếu Nhập" && dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac =
-                                "DELETE FROM DBO.PHIEUNHAP " +
-                                "WHERE MAPN = '" + maPhieuNhap + "'";
+                            cauTruyVanHoanTac = "Phiếu Nhập";
+                               
                         }
 
                         /*TH2: them moi chi tiet don hang*/
                         if (cheDo == "Chi Tiết Phiếu Nhập" && dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac =
-                                "DELETE FROM DBO.CTPN " +
-                                "WHERE MAPN = '" + maPhieuNhap + "' " +
-                                "AND MAVT = '" + Program.maVatTuDuocChon + "'";
+                            cauTruyVanHoanTac = "Chi Tiết Phiếu Nhập";
 
                             string maVatTu = txtMAVT.Text.Trim();
-                            int soLuong = (int)txtSOLUONG.Value;
+                            float soLuong = (float)txtSOLUONG.Value;
                             
                             capNhatSoLuongVatTu(maVatTu, soLuong);
                             
@@ -848,11 +844,9 @@ namespace QLVT
             FormChonChiTietDonHang form = new FormChonChiTietDonHang();
             form.ShowDialog();
 
-
-
             this.txtMAVT.Text = Program.maVatTuDuocChon;
             this.txtSOLUONG.Value = Program.soLuongVatTu;
-            this.txtDONGIA.Value = Program.donGia;
+            
         }
 
         private void btnChonDonHang_Click(object sender, EventArgs e)

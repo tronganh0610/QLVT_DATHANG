@@ -40,7 +40,7 @@ namespace QLVT.FormChon
             string maDonHang = drv["MasoDDH"].ToString().Trim();
             string maVatTu = drv["MaVT"].ToString().Trim();
             int soLuong = int.Parse(drv["SOLUONG"].ToString().Trim());
-            int donGia = int.Parse(drv["DONGIA"].ToString().Trim());
+            float donGia = float.Parse(drv["DONGIA"].ToString().Trim());
 
 
             /*Kiem tra xem ma don hang cua gcPhieuNhap co trung voi ma don hang duoc chon hay khong ?*/

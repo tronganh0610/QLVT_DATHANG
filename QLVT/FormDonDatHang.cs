@@ -521,9 +521,7 @@ namespace QLVT
                         /*TH1: them moi don dat hang*/
                         if (cheDo == "Đơn Đặt Hàng" && dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac =
-                                "DELETE FROM DBO.DATHANG " +
-                                "WHERE MasoDDH = '" + maDonDatHang + "'";
+                            cauTruyVanHoanTac= "Đơn Đặt Hàng";
                         }
 
                         /*TH2: them moi chi tiet don hang*/
@@ -531,17 +529,7 @@ namespace QLVT
                         {
                             /*Gan tu dong may truong du lieu nay*/
                             ((DataRowView)(bdsCTDDH.Current))["MasoDDH"] = maDonDatHang;
-                            ((DataRowView)(bdsCTDDH.Current))["MAVT"] = Program.maVatTuDuocChon;
-                            ((DataRowView)(bdsCTDDH.Current))["SOLUONG"] =
-                                txtSoLuong.Value;
-                            ((DataRowView)(bdsCTDDH.Current))["DONGIA"] =
-                                (int)txtDonGia.Value;
-
-
-                            cauTruyVanHoanTac =
-                                "DELETE FROM DBO.CTDDH " +
-                                "WHERE MasoDDH = '" + maDonDatHang + "' " +
-                                "AND MAVT = '" + txtMaVT.Text.Trim() + "'";
+                            cauTruyVanHoanTac = "Chi Tiết Đơn Đặt Hàng";
                         }
 
                         /*TH3: chinh sua don hang */
@@ -695,7 +683,7 @@ namespace QLVT
                 }
                 if (cheDo == "Chi Tiết Đơn Đặt Hàng")
                 {
-                    this.datHangGridControl.Enabled = false;
+                    this.datHangGridControl.Enabled = true;
                     this.cTDDHGridControl.Enabled = true;
                     txtMaVT.Enabled = true;
                     btnChonVatTu.Enabled = true;

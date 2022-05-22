@@ -676,18 +676,13 @@ namespace QLVT
                         /*TH1: them moi phieu nhap*/
                         if (cheDo == "Phiếu Xuất" && dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac =
-                                "DELETE FROM DBO.PHIEUXUAT " +
-                                "WHERE MAPX = '" + maPhieuXuat + "'";
+                            cauTruyVanHoanTac = "Phiếu Xuất";
                         }
 
                         /*TH2: them moi chi tiet don hang*/
                         if (cheDo == "Chi Tiết Phiếu Xuất" && dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac =
-                                 "DELETE FROM DBO.CTPX " +
-                                 "WHERE MAPX = '" + maPhieuXuat + "' " +
-                                 "AND MAVT = '" + Program.maVatTuDuocChon + "'";
+                            cauTruyVanHoanTac ="Chi Tiết Phiếu Xuất";
 
                             string maVatTu = txtMaVT.Text.Trim();
                             int soLuong = (int)txtSoLuong.Value;
@@ -699,8 +694,7 @@ namespace QLVT
                          * duoc -> chang can xu ly*/
                         /*TH4: chinh sua chi tiet phieu nhap - > thi chi can may dong lenh duoi la xong*/
                         undoList.Push(cauTruyVanHoanTac);
-                        Console.WriteLine("cau truy van hoan tac");
-                        Console.WriteLine(cauTruyVanHoanTac);
+                        
 
                         this.bdsPhieuXuat.EndEdit();
                         this.bdsCTPX.EndEdit();
@@ -727,7 +721,7 @@ namespace QLVT
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        
                         bds.RemoveCurrent();
                         MessageBox.Show("Da xay ra loi !\n\n" + ex.Message, "Lỗi",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
