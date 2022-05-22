@@ -449,15 +449,13 @@ namespace QLVT
                 return;
             }
 
-
-
             /*Step 2*/
             String cheDo = (btnCheDo.Links[0].Caption == "Đơn Đặt Hàng") ? "Đơn Đặt Hàng" : "Chi Tiết Đơn Đặt Hàng";
 
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
             if (ketQua == false) return;
 
-            String cauTruyVanHoanTac = taoCauTruyVanHoanTac(cheDo);
+            //String cauTruyVanHoanTac = taoCauTruyVanHoanTac(cheDo);
             //Console.WriteLine(cauTruyVanHoanTac);
 
 
@@ -521,22 +519,17 @@ namespace QLVT
                         /*TH1: them moi don dat hang*/
                         if (cheDo == "Đơn Đặt Hàng" && dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac= "Đơn Đặt Hàng";
+                           
                         }
 
                         /*TH2: them moi chi tiet don hang*/
                         if (cheDo == "Chi Tiết Đơn Đặt Hàng" && dangThemMoi == true)
                         {
-                            /*Gan tu dong may truong du lieu nay*/
-                            ((DataRowView)(bdsCTDDH.Current))["MasoDDH"] = maDonDatHang;
-                            cauTruyVanHoanTac = "Chi Tiết Đơn Đặt Hàng";
+                                                     
                         }
-
                         /*TH3: chinh sua don hang */
                         /*TH4: chinh sua chi tiet don hang - > thi chi can may dong lenh duoi la xong*/
-                        undoList.Push(cauTruyVanHoanTac);
-                        //Console.WriteLine("cau truy van hoan tac");
-                        //Console.WriteLine(cauTruyVanHoanTac);
+                        
 
                         this.bdsDatHang.EndEdit();
                         this.bdsCTDDH.EndEdit();
@@ -604,8 +597,7 @@ namespace QLVT
                 }
                 /*dang o che do Chi Tiet Don Dat Hang*/
                 if (btnCheDo.Links[0].Caption == "Chi Tiết Đơn Đặt Hàng")
-                {
-                    
+                {               
                     this.txtMaVT.Enabled = false;
                     this.btnChonVatTu.Enabled = true;
 
@@ -614,8 +606,6 @@ namespace QLVT
 
                     this.txtDonGia.Enabled = true;
                     this.txtDonGia.EditValue = 1;
-
-                    
 
                 }
 

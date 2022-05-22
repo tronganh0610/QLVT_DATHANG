@@ -475,48 +475,7 @@ namespace QLVT
             Console.WriteLine(cauTruyVan);
         }
         
-        private String taoCauTruyVanHoanTac(String cheDo)
-        {
-            String cauTruyVan = "";
-            DataRowView drv;
-
-            /*TH1: dang sua phieu nhap - nhung ko co truong du lieu nao co the cho sua duoc ca*/
-            if (cheDo == "Phiếu Nhập" && dangThemMoi == false)
-            {
-                // khong co gi ca
-            }
-
-            /*TH2: them moi phieu nhap*/
-            if (cheDo == "Phiếu Nhập" && dangThemMoi == true)
-            {
-                // tao trong btnGHI thi hon
-            }
-
-            /*TH3: them moi chi tiet phieu nhap*/
-            if (cheDo == "Chi Tiết Phiếu Nhập" && dangThemMoi == true)
-            {
-                // tao trong btnGHI thi hon
-            }
-
-            /*TH4: dang sua chi tiet phieu nhap*/
-            if (cheDo == "Chi Tiết Phiếu Nhập" && dangThemMoi == false)
-            {
-                drv = ((DataRowView)(bdsCTPN.Current));
-                int soLuong = int.Parse(drv["SOLUONG"].ToString().Trim());
-                float donGia = float.Parse(drv["DONGIA"].ToString().Trim());
-                String maPhieuNhap = drv["MAPN"].ToString().Trim();
-                String maVatTu = drv["MAVT"].ToString().Trim();
-
-                cauTruyVan = "UPDATE DBO.CTPN " +
-                    "SET " +
-                    "SOLUONG = " + soLuong + ", " +
-                    "DONGIA = " + donGia + " " +
-                    "WHERE MAPN = '" + maPhieuNhap + "' " +
-                    "AND MAVT = '" + maVatTu + "' ";
-            }
-
-            return cauTruyVan;
-        }
+        
         private bool kiemTraDuLieuDauVao(String cheDo)
         {
             if (cheDo == "Phiếu Nhập")
@@ -527,7 +486,6 @@ namespace QLVT
                     txtMAPN.Focus();
                     return false;
                 }
-
 
                 if (txtMANV.Text == "")
                 {
@@ -605,8 +563,6 @@ namespace QLVT
             if (ketQua == false) return;
 
             /*Step 3*/
-            string cauTruyVanHoanTac = taoCauTruyVanHoanTac(cheDo);
-
 
             /*Step 4*/
             String maPhieuNhap = txtMAPN.Text.Trim();
@@ -656,32 +612,23 @@ namespace QLVT
                 {
                     try
                     {
-                        //Console.WriteLine(txtMaNhanVien.Text);
-                        /*TH1: them moi phieu nhap*/
-                        if (cheDo == "Phiếu Nhập" && dangThemMoi == true)
-                        {
-                            cauTruyVanHoanTac = "Phiếu Nhập";
-                               
-                        }
+                        
 
                         /*TH2: them moi chi tiet don hang*/
                         if (cheDo == "Chi Tiết Phiếu Nhập" && dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac = "Chi Tiết Phiếu Nhập";
 
                             string maVatTu = txtMAVT.Text.Trim();
                             float soLuong = (float)txtSOLUONG.Value;
                             
                             capNhatSoLuongVatTu(maVatTu, soLuong);
-                            
+
                         }
 
                         /*TH3: chinh sua phieu nhap -> chang co gi co the chinh sua
                          * duoc -> chang can xu ly*/
                         /*TH4: chinh sua chi tiet phieu nhap - > thi chi can may dong lenh duoi la xong*/
-                        undoList.Push(cauTruyVanHoanTac);
-                        Console.WriteLine("cau truy van hoan tac");
-                        Console.WriteLine(cauTruyVanHoanTac);
+                        //undoList.Push(cauTruyVanHoanTac);
 
                         this.bdsPhieuNhap.EndEdit();
                         this.bdsCTPN.EndEdit();
@@ -757,7 +704,6 @@ namespace QLVT
                     drv["MasoDDH"].ToString() + "', '" +
                     drv["MANV"].ToString() + "', '" +
                     drv["MAKHO"].ToString() + "')";
-
             }
 
             if (cheDo == "Chi Tiết Phiếu Nhập")
@@ -769,8 +715,6 @@ namespace QLVT
                     MessageBox.Show("Bạn không xóa chi tiết phiếu nhập không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
                     return;
                 }
-
-
                 drv = ((DataRowView)bdsCTPN[bdsCTPN.Position]);
                 cauTruyVanHoanTac = "INSERT INTO DBO.CTPN(MAPN, MAVT, SOLUONG, DONGIA) " +
                     "VALUES('" + drv["MAPN"].ToString().Trim() + "', '" +
@@ -780,8 +724,7 @@ namespace QLVT
             }
 
             undoList.Push(cauTruyVanHoanTac);
-            //Console.WriteLine("Line 842");
-            //Console.WriteLine(cauTruyVanHoanTac);
+            
 
             /*Step 2*/
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo",

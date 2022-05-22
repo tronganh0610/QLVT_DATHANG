@@ -541,58 +541,7 @@ namespace QLVT
 
             return true;
         }
-        private string taoCauTruyVanHoanTac(string cheDo)
-        {
-            String cauTruyVan = "";
-            DataRowView drv;
-
-            /*TH1: dang sua phieu xuat*/
-            if (cheDo == "Phiếu Xuất" && dangThemMoi == false)
-            {
-                drv = ((DataRowView)(bdsPhieuXuat.Current));
-                DateTime ngay = (DateTime)drv["NGAY"];
-
-
-                cauTruyVan = "UPDATE DBO.PHIEUXUAT " +
-                    "SET " +
-                    "NGAY = CAST('" + ngay.ToString("yyyy-MM-dd") + "' AS DATETIME), " +
-                    "HOTENKH = '" + drv["HOTENKH"].ToString().Trim() + "', " +
-                    "MANV = '" + drv["MANV"].ToString().Trim() + "', " +
-                    "MAKHO = '" + drv["MAKHO"].ToString().Trim() + "' " +
-                    "WHERE MAPX = '" + drv["MAPX"].ToString().Trim() + "' ";
-            }
-
-            /*TH2: them moi phieu xuat*/
-            if (cheDo == "Phiếu Xuất" && dangThemMoi == true)
-            {
-                // tao trong btnGHI thi hon
-            }
-
-            /*TH3: them moi chi tiet phieu xuat*/
-            if (cheDo == "Chi Tiết Phiếu Xuất" && dangThemMoi == true)
-            {
-                // tao trong btnGHI thi hon
-            }
-
-            /*TH4: dang sua chi tiet phieu nhap*/
-            if (cheDo == "Chi Tiết Phiếu Xuất" && dangThemMoi == false)
-            {
-                drv = ((DataRowView)(bdsCTPX.Current));
-                int soLuong = int.Parse(drv["SOLUONG"].ToString().Trim());
-                float donGia = float.Parse(drv["DONGIA"].ToString().Trim());
-                String maPhieuXuat = drv["MAPX"].ToString().Trim();
-                String maVatTu = drv["MAVT"].ToString().Trim();
-
-                cauTruyVan = "UPDATE DBO.CTPX " +
-                    "SET " +
-                    "SOLUONG = " + soLuong + " " +
-                    "DONGIA = " + donGia + " " +
-                    "WHERE MAPX = '" + maPhieuXuat + "' " +
-                    "AND MAVT = '" + maVatTu + "' ";
-            }
-
-            return cauTruyVan;
-        }
+        
         private void capNhatSoLuongVatTu(string maVatTu, int soLuong)
         {
             string cauTruyVan = "EXEC sp_CapNhatSoLuongVatTu 'EXPORT','" + maVatTu + "', " + soLuong;
@@ -616,12 +565,6 @@ namespace QLVT
             /*Step 2*/
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
             if (ketQua == false) return;
-
-
-
-            /*Step 3*/
-            string cauTruyVanHoanTac = taoCauTruyVanHoanTac(cheDo);
-
 
             /*Step 4*/
             String maPhieuXuat = txtMAPX.Text.Trim();
@@ -672,17 +615,10 @@ namespace QLVT
                 {
                     try
                     {
-                        //Console.WriteLine(txtMaNhanVien.Text);
-                        /*TH1: them moi phieu nhap*/
-                        if (cheDo == "Phiếu Xuất" && dangThemMoi == true)
-                        {
-                            cauTruyVanHoanTac = "Phiếu Xuất";
-                        }
-
                         /*TH2: them moi chi tiet don hang*/
                         if (cheDo == "Chi Tiết Phiếu Xuất" && dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac ="Chi Tiết Phiếu Xuất";
+                            
 
                             string maVatTu = txtMaVT.Text.Trim();
                             int soLuong = (int)txtSoLuong.Value;
@@ -693,8 +629,6 @@ namespace QLVT
                         /*TH3: chinh sua phieu nhap -> chang co gi co the chinh sua
                          * duoc -> chang can xu ly*/
                         /*TH4: chinh sua chi tiet phieu nhap - > thi chi can may dong lenh duoi la xong*/
-                        undoList.Push(cauTruyVanHoanTac);
-                        
 
                         this.bdsPhieuXuat.EndEdit();
                         this.bdsCTPX.EndEdit();
@@ -785,8 +719,7 @@ namespace QLVT
             }
 
             undoList.Push(cauTruyVanHoanTac);
-            //Console.WriteLine("Line 825");
-            //Console.WriteLine(cauTruyVanHoanTac);
+
 
 
             /*Step 2*/
