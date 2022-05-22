@@ -515,21 +515,7 @@ namespace QLVT
                 {
                     try
                     {
-                        //Console.WriteLine(txtMaNhanVien.Text);
-                        /*TH1: them moi don dat hang*/
-                        if (cheDo == "Đơn Đặt Hàng" && dangThemMoi == true)
-                        {
-                           
-                        }
 
-                        /*TH2: them moi chi tiet don hang*/
-                        if (cheDo == "Chi Tiết Đơn Đặt Hàng" && dangThemMoi == true)
-                        {
-                                                     
-                        }
-                        /*TH3: chinh sua don hang */
-                        /*TH4: chinh sua chi tiet don hang - > thi chi can may dong lenh duoi la xong*/
-                        
 
                         this.bdsDatHang.EndEdit();
                         this.bdsCTDDH.EndEdit();
@@ -540,7 +526,7 @@ namespace QLVT
                         this.btnXoa.Enabled = true;
                         this.btnGhi.Enabled = true;
 
-                        this.btnPhucHoi.Enabled = true;
+                        this.btnPhucHoi.Enabled = false;
                         this.btnReload.Enabled = true;
                         this.btnCheDo.Enabled = true;
                         this.btnThoat.Enabled = true;

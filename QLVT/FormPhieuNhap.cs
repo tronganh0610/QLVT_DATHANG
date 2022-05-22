@@ -639,7 +639,7 @@ namespace QLVT
                         this.btnXoa.Enabled = true;
                         this.btnGhi.Enabled = true;
 
-                        this.btnPhucHoi.Enabled = true;
+                        this.btnPhucHoi.Enabled = false;
                         this.btnReload.Enabled = true;
                         this.btnCheDo.Enabled = true;
                         this.btnThoat.Enabled = true;

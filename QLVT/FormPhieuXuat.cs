@@ -615,7 +615,7 @@ namespace QLVT
                 {
                     try
                     {
-                        /*TH2: them moi chi tiet don hang*/
+                       
                         if (cheDo == "Chi Tiết Phiếu Xuất" && dangThemMoi == true)
                         {
                             
@@ -626,9 +626,8 @@ namespace QLVT
                             capNhatSoLuongVatTu(maVatTu, soLuong);
                         }
 
-                        /*TH3: chinh sua phieu nhap -> chang co gi co the chinh sua
-                         * duoc -> chang can xu ly*/
-                        /*TH4: chinh sua chi tiet phieu nhap - > thi chi can may dong lenh duoi la xong*/
+                        
+                        
 
                         this.bdsPhieuXuat.EndEdit();
                         this.bdsCTPX.EndEdit();
@@ -639,7 +638,7 @@ namespace QLVT
                         this.btnXoa.Enabled = true;
                         this.btnGhi.Enabled = true;
 
-                        this.btnPhucHoi.Enabled = true;
+                        this.btnPhucHoi.Enabled = false;
                         this.btnReload.Enabled = true;
                         this.btnCheDo.Enabled = true;
                         this.btnThoat.Enabled = true;
