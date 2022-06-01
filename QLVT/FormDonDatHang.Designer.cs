@@ -412,7 +412,7 @@
             this.separatorControl1.Name = "separatorControl1";
             this.separatorControl1.Size = new System.Drawing.Size(566, 23);
             this.separatorControl1.TabIndex = 22;
-            this.separatorControl1.Click += new System.EventHandler(this.separatorControl1_Click);
+            
             // 
             // txtNhaCC
             // 

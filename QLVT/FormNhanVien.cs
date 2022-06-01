@@ -1,4 +1,5 @@
-﻿using QLVT.FormDanhSach;
+﻿using QLVT.FormChon;
+using QLVT.FormDanhSach;
 using System;
 using System.Collections;
 using System.Data;
@@ -12,28 +13,13 @@ namespace QLVT
     {
         /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
-        /********************************************
-         * đang thêm mới -> true -> đang dùng btnTHEM
-         *              -> false -> có thể là btnGHI( chỉnh sửa) hoặc btnXOA
-         *              
-         * Mục đích: dùng biến này để phân biệt giữa btnTHEM - thêm mới hoàn toàn
-         * và việc chỉnh sửa nhân viên( do mình ko dùng thêm btnXOA )
-         * Trạng thái true or false sẽ được sử dụng 
-         * trong btnGHI - việc này để phục vụ cho btnHOANTAC
-         ********************************************/
+        
         bool dangThemMoi = false;
 
         String maChiNhanh = "";
-        /**********************************************************
-         * undoList - phục vụ cho btnHOANTAC -  chứa các thông tin của đối tượng bị tác động 
-         * 
-         * nó là nơi lưu trữ các đối tượng cần thiết để hoàn tác các thao tác
-         * 
-         * nếu btnGHI sẽ ứng với INSERT
-         * nếu btnXOA sẽ ứng với DELETE
-         * nếu btnCHUYENCHINHANH sẽ ứng với CHANGEBRAND
-         **********************************************************/
+        
         Stack undoList = new Stack();
+        public static string TenCN ="";
 
         private static int CalculateAge(DateTime dateOfBirth)
         {
@@ -44,14 +30,7 @@ namespace QLVT
 
             return age;
         }
-        /************************************************************
-         * CheckExists:
-         * Để tránh việc người dùng ấn vào 1 form đến 2 lần chúng ta 
-         * cần sử dụng hàm này để kiểm tra xem cái form hiện tại đã 
-         * có trong bộ nhớ chưa
-         * Nếu có trả về "f"
-         * Nếu không trả về "null"
-         ************************************************************/
+        
         private Form CheckExists(Type ftype)
         {
             foreach (Form f in this.MdiChildren)
@@ -72,11 +51,6 @@ namespace QLVT
 
         }
 
-        /*
-         *Step 1: tat kiem tra khoa ngoai & do du lieu vao form
-         *Step 2: lay du lieu dang nhap tu form dang nhap
-         *Step 3: bat nut chuc nang theo vai tro khi dang nhap
-         */
         public void FormNhanVien_Load(object sender, EventArgs e)
         {
             
@@ -97,16 +71,17 @@ namespace QLVT
             this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuXuatTableAdapter.Fill(this.DS_SV1.PhieuXuat);
 
-            /*van con ton tai loi chua sua duoc*/
-            maChiNhanh = ((DataRowView)bdsSV1[0])["MACN"].ToString();
+            
+            TenCN = ((DataRowView)bdsSV1[0])["MACN"].ToString();
 
             /*Step 2*/
 
             cmbCHINHANH.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
-            cmbCHINHANH.DisplayMember = "TENCN";
+            cmbCHINHANH.DisplayMember = "TENCN"; 
             cmbCHINHANH.ValueMember = "TENSERVER";
             cmbCHINHANH.SelectedIndex = Program.brand;
             
+           
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
             if (Program.role == "CongTy")
@@ -217,19 +192,7 @@ namespace QLVT
         {
 
         }
-        /*********************************************************************
-         * bdsNhanVien.Position - vitri phuc vu cho btnPhucHoi. Gia su, co 5 nhan vien, con tro chuot
-         * dang dung o vi tri nhan vien thu 2 thi chung ta an nut THEM
-         * nhung neu chon btnPhucHoi, con tro chuot phai quay lai vi 
-         * tri nhan vien thu 2, thay vi o vi tri duoi cung - tuc nhan vien so 5
-         * 
-         * neu nhap chu cho txtMANV thi se khong chuyen sang cac o khac duoc nua - bat buoc ghi so
-         * 
-         * Step 1: Kich hoat panel Nhap lieu & lay vi tri cua nhan vien hien tai
-         * dat dangThemMoi = true
-         * Step 2: gui lenh them moi toi bdsNHANVIEN - tu dong lay maChiNhanh - bo trong dteNGAYSINH
-         * Step 3: vo hieu hoa cac nut chuc nang & gridControl - chi btnGHI & btnPhucHoi moi duoc hoat dong
-         *********************************************************************/
+        
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
@@ -383,9 +346,6 @@ namespace QLVT
             int trangThai = (checkBoxTTXoa.Checked == true) ? 1 : 0;
 
 
-            /*declare @returnedResult int
-              exec @returnedResult = sp_TraCuu_KiemTraMaNhanVien '20'
-              select @returnedResult*/
             String cauTruyVan =
                     "DECLARE	@result int " +
                     "EXEC @result = [dbo].[sp_TraCuu_KiemTraMaNhanVien] '" +
@@ -457,8 +417,6 @@ namespace QLVT
                         /*trước khi ấn btnGHI là sửa thông tin nhân viên*/
                         else
                         {
-
-
                             cauTruyVanHoanTac =
                                 "UPDATE DBO.NhanVien " +
                                 "SET " +
@@ -507,7 +465,7 @@ namespace QLVT
                 btnXoa.Enabled = false;
             }
 
-            /*if (bdsDatHang.Count > 0) 
+            if (bdsDatHang.Count > 0)
             {
                 MessageBox.Show("Không thể xóa nhân viên này vì đã lập đơn đặt hàng", "Thông báo", MessageBoxButtons.OK);
                 return;
@@ -523,15 +481,11 @@ namespace QLVT
             {
                 MessageBox.Show("Không thể xóa nhân viên này vì đã lập phiếu xuất", "Thông báo", MessageBoxButtons.OK);
                 return;
-            }*/
+            }
 
-            /* Phần này phục vụ tính năng hoàn tác
-                    * Đưa câu truy vấn hoàn tác vào undoList 
-                    * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
             int trangThai = (checkBoxTTXoa.Checked == true) ? 1 : 0;
             /*Lấy ngày sinh trong grid view*/
             String ngaySinh = deNGAYSINH.Text.Trim();
-
 
             string cauTruyVanHoanTac =
                 string.Format("INSERT INTO DBO.NHANVIEN( MANV,HO,TEN,DIACHI,NGAYSINH,LUONG,MACN)" +
@@ -539,7 +493,6 @@ namespace QLVT
 
             Console.WriteLine(cauTruyVanHoanTac);
             undoList.Push(cauTruyVanHoanTac);
-
 
             /*Step 2*/
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không ?", "Thông báo",
@@ -562,9 +515,9 @@ namespace QLVT
                     /*Step 4*/
                     MessageBox.Show("Lỗi xóa nhân viên. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.nhanVienTableAdapter.Fill(this.DS_SV1.NhanVien);
-                    // tro ve vi tri cua nhan vien dang bi loi
+                    
                     bdsSV1.Position = viTri;
-                    //bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
+                   
                     return;
                 }
             }
@@ -589,18 +542,7 @@ namespace QLVT
 
         }
 
-        /**********************************************************************
-         * moi lan nhan btnPhucHoi thi nen nhan them btnLAMMOI de 
-         * tranh bi loi khi an btnTHEM lan nua
-         * 
-         * statement: chua cau y nghia chuc nang ngay truoc khi an btnPhucHoi.
-         * Vi du: statement = INSERT | DELETE | CHANGEBRAND
-         * 
-         * bdsSV1.CancelEdit() - phuc hoi lai du lieu neu chua an btnGHI
-         * Step 0: trường hợp đã ấn btnTHEM nhưng chưa ấn btnGHI
-         * Step 1: kiểm tra undoList có trông hay không ?
-         * Step 2: Neu undoList khong trống thì lấy ra khôi phục
-         *********************************************************************/
+        
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /* Step 0 - */
@@ -642,69 +584,16 @@ namespace QLVT
             /*Step 2*/
             bdsSV1.CancelEdit();
             String cauTruyVanHoanTac = undoList.Pop().ToString();
-            //Console.WriteLine(cauTruyVanHoanTac);
-
-            /*Step 2.1*/
-            /*if (cauTruyVanHoanTac.Contains("sp_ChuyenChiNhanh"))
-            {
-                try
-                {
-                    String chiNhanhHienTai = Program.serverName;
-                    String chiNhanhChuyenToi = Program.serverNameLeft;
-
-                    Program.serverName = chiNhanhChuyenToi;
-                    Program.loginName = Program.remoteLogin;
-                    Program.loginPassword = Program.remotePassword;
-
-                    if (Program.KetNoi() == 0)
-                    {
-                        return;
-                    }
-
-
-                    int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
-
-                    MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK);
-                    Program.serverName = chiNhanhHienTai;
-                    Program.loginName = Program.currentLogin;
-                    Program.loginPassword = Program.currentPassword;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Chuyển nhân viên thất bại \n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
-                    return;
-                }
-
-            }
-            *//*Step 2.2*//*
-            else
-            {
-                if (Program.KetNoi() == 0)
-                {
-                    return;
-                }
-                int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
-
-            }*/
+           
             this.nhanVienTableAdapter.Fill(this.DS_SV1.NhanVien);
 
-
-
-
-            /*
-            bdsNhanVien.CancelEdit();
-            String cauTruyVanHoanTac = undoList.Pop().ToString();
-            Console.WriteLine(cauTruyVanHoanTac);
-            int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
-            this.nhanVienTableAdapter.Fill(this.dataSet.NhanVien);
-             */
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
-                // do du lieu moi tu dataSet vao gridControl NHANVIEN
+                
                 this.nhanVienTableAdapter.Fill(this.DS_SV1.NhanVien);
                 this.nhanVienGridControl.Enabled = true;
             }
@@ -715,163 +604,6 @@ namespace QLVT
             }
         }
 
-        private void deNGAYSINH_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nhanVienGridControl_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-        
-
-        private void panelControl1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void mANVLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hOLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tENLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mACNLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nGAYSINHLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dIACHILabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lUONGLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trangThaiXoaLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBoxTTXoa_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bdsSV1_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLUONG_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void barDockControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void barDockControl2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void barDockControl3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void barDockControl4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDIACHI_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deNGAYSINH_EditValueChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMACN_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTEN_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtHO_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMANV_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bdsPhieuNhap_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bdsPhieuXuat_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bdsDatHang_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vattuBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-           
-
-        }
-
-        private void nhanVienGridControl_Click_3(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnInDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -903,19 +635,39 @@ namespace QLVT
                 string ho = drv["HO"].ToString().Trim();
                 string ten = drv["TEN"].ToString().Trim();
                 string hoTen = ho + " " + ten;
-
+                string macn = drv["MACN"].ToString().Trim();
                 Program.maNhanVienDuocChon = maNhanVien;
                 Program.hoTen = hoTen;
-
+                Program.Macn = macn;
 
                 FormDanhSachHoatDongNhanVien form = new FormDanhSachHoatDongNhanVien();
                 form.ShowDialog();
             }
             
-            
-            
+        }
 
-            
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormChuyenChiNhanh));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                DataRowView drv = ((DataRowView)(bdsSV1.Current));
+                string maNhanVien = drv["MANV"].ToString().Trim();
+                string ho = drv["HO"].ToString().Trim();
+                string ten = drv["TEN"].ToString().Trim();
+                string hoTen = ho + " " + ten;
+                string macn = drv["MACN"].ToString().Trim();
+                Program.maNhanVienDuocChon = maNhanVien;
+                Program.hoTen = hoTen;
+                Program.Macn = macn;
+                FormChuyenChiNhanh form = new FormChuyenChiNhanh();
+                form.ShowDialog();
+                
+            }
         }
     }
 }

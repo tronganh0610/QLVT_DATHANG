@@ -105,7 +105,7 @@
             mAVTLabel.Size = new System.Drawing.Size(91, 18);
             mAVTLabel.TabIndex = 0;
             mAVTLabel.Text = "Mã Vật Tư :";
-            mAVTLabel.Click += new System.EventHandler(this.mAVTLabel_Click);
+            
             // 
             // tENVTLabel
             // 
@@ -116,7 +116,7 @@
             tENVTLabel.Size = new System.Drawing.Size(96, 18);
             tENVTLabel.TabIndex = 2;
             tENVTLabel.Text = "Tên Vật Tư :";
-            tENVTLabel.Click += new System.EventHandler(this.tENVTLabel_Click);
+           
             // 
             // dVTLabel
             // 
@@ -127,7 +127,7 @@
             dVTLabel.Size = new System.Drawing.Size(102, 18);
             dVTLabel.TabIndex = 4;
             dVTLabel.Text = "Đơn Vị Tính :";
-            dVTLabel.Click += new System.EventHandler(this.dVTLabel_Click);
+            
             // 
             // sOLUONGTONLabel
             // 
@@ -138,7 +138,7 @@
             sOLUONGTONLabel.Size = new System.Drawing.Size(117, 18);
             sOLUONGTONLabel.TabIndex = 6;
             sOLUONGTONLabel.Text = "Số Lượng Tồn :";
-            sOLUONGTONLabel.Click += new System.EventHandler(this.sOLUONGTONLabel_Click);
+           
             // 
             // DS_SV1
             // 
@@ -217,7 +217,7 @@
             this.txtMAVT.Properties.Appearance.Options.UseFont = true;
             this.txtMAVT.Size = new System.Drawing.Size(125, 28);
             this.txtMAVT.TabIndex = 1;
-            this.txtMAVT.EditValueChanged += new System.EventHandler(this.txtMAVT_EditValueChanged);
+            
             // 
             // vattuTableAdapter
             // 

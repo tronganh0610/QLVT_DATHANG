@@ -18,49 +18,17 @@ namespace QLVT
     {
         /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
-        /********************************************
-         * đang thêm mới -> true -> đang dùng btnTHEM
-         *              -> false -> có thể là btnGHI( chỉnh sửa) hoặc btnXOA
-         *              
-         * Mục đích: dùng biến này để phân biệt giữa btnTHEM - thêm mới hoàn toàn
-         * và việc chỉnh sửa nhân viên( do mình ko dùng thêm btnXOA )
-         * Trạng thái true or false sẽ được sử dụng 
-         * trong btnGHI - việc này để phục vụ cho btnHOANTAC
-         ********************************************/
+       
         bool dangThemMoi = false;
         public string makho = "";
         string maChiNhanh = "";
-        /**********************************************************
-         * undoList - phục vụ cho btnHOANTAC -  chứa các thông tin của đối tượng bị tác động 
-         * 
-         * nó là nơi lưu trữ các đối tượng cần thiết để hoàn tác các thao tác
-         * 
-         * nếu btnGHI sẽ ứng với INSERT
-         * nếu btnXOA sẽ ứng với DELETE
-         * nếu btnCHUYENCHINHANH sẽ ứng với CHANGEBRAND
-         **********************************************************/
+       
         Stack undoList = new Stack();
 
-
-
-        /********************************************************
-         * chứa những dữ liệu hiện tại đang làm việc
-         * gc chứa grid view đang làm việc
-         ********************************************************/
         BindingSource bds = null;
         GridControl gc = null;
         string type = "";
 
-
-
-        /************************************************************
-         * CheckExists:
-         * Để tránh việc người dùng ấn vào 1 form đến 2 lần chúng ta 
-         * cần sử dụng hàm này để kiểm tra xem cái form hiện tại đã 
-         * có trong bộ nhớ chưa
-         * Nếu có trả về "f"
-         * Nếu không trả về "null"
-         ************************************************************/
         private Form CheckExists(Type ftype)
         {
             foreach (Form f in this.MdiChildren)
@@ -83,8 +51,6 @@ namespace QLVT
 
         private void FormPhieuNhap_Load(object sender, EventArgs e)
         {
-
-
             /*Step 1*/
             /*không kiểm tra khóa ngoại nữa*/
             DS_SV1.EnforceConstraints = false;
@@ -508,15 +474,11 @@ namespace QLVT
 
             if (cheDo == "Chi Tiết Phiếu Nhập")
             {
-                /*Do chung khoa chinh cua no la MAPN + MAVT*/
-                /* tạo 2 phiếu nhập cùng mã đơn hàng thì bị lỗi do maDonHang trong phiếu 
-                 * nhập chỉ được xuất hiện 1 lần duy nhất
-                 */
-                /*
-                if (bdsChiTietPhieuNhap.Count > 1)
+
+                /*if (bdsCTPN.Count > 1)
                 {
                     MessageBox.Show("Không thể thêm chi tiết phiếu nhập quá 1 lần", "Thông báo", MessageBoxButtons.OK);
-                    bdsChiTietPhieuNhap.RemoveCurrent();
+                    bdsCTPN.RemoveCurrent();
                     return false;
                 }*/
 
@@ -545,13 +507,6 @@ namespace QLVT
             return true;
         }
 
-        /*
-         *Step 1: xac dinh xem minh dang GHI o che do nao
-         *Step 2: kiem tra du lieu dau vao
-         *Step 3: tao cau truy van hoan tac
-         *Step 4: dung stored procedure kiem tra xem phieu nhap da ton tai chua ?
-         *Step 5: xu ly du lieu neu co
-         */
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
@@ -625,10 +580,7 @@ namespace QLVT
 
                         }
 
-                        /*TH3: chinh sua phieu nhap -> chang co gi co the chinh sua
-                         * duoc -> chang can xu ly*/
-                        /*TH4: chinh sua chi tiet phieu nhap - > thi chi can may dong lenh duoi la xong*/
-                        //undoList.Push(cauTruyVanHoanTac);
+                        
 
                         this.bdsPhieuNhap.EndEdit();
                         this.bdsCTPN.EndEdit();
@@ -664,13 +616,7 @@ namespace QLVT
                 }
             }
         }
-        /**
-        * Step 1: lấy chế độ đang sử dụng và đặt dangThemMoi = true để phục vụ điều kiện tạo câu truy
-        * vấn hoàn tác
-        * Step 2: kiểm tra điều kiện theo chế độ đang sử dụng
-        * Step 3: nạp câu truy vấn hoàn tác vào undolist
-        * Step 4: Thực hiện xóa nếu OK
-        */
+       
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DataRowView drv;
@@ -801,50 +747,7 @@ namespace QLVT
             this.txtMAKHO.Text = Program.maKhoDuocChon;
         }
 
-        private void labelControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dONGIALabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDONGIA_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sOLUONGLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSOLUONG_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mAVTLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMAVT_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void masoDDHLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMADDH_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+    
 
         
         

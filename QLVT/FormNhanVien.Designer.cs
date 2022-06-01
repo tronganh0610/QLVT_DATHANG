@@ -55,6 +55,7 @@
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
             this.btnInDSNV = new DevExpress.XtraBars.BarButtonItem();
             this.btnHoatDongNhanVien = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -212,7 +213,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1416, 127);
             this.panelControl1.TabIndex = 0;
-            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
+            
             // 
             // cmbCHINHANH
             // 
@@ -238,7 +239,7 @@
             this.labelControl1.Size = new System.Drawing.Size(107, 21);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "CHI NHÁNH:";
-            this.labelControl1.Click += new System.EventHandler(this.labelControl1_Click);
+           
             // 
             // panelControl2
             // 
@@ -327,8 +328,9 @@
             this.btnReload,
             this.btnThoat,
             this.btnInDSNV,
-            this.btnHoatDongNhanVien});
-            this.barManager2.MaxItemId = 12;
+            this.btnHoatDongNhanVien,
+            this.barButtonItem2});
+            this.barManager2.MaxItemId = 13;
             this.barManager2.StatusBar = this.bar3;
             // 
             // bar1
@@ -346,6 +348,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnInDSNV, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHoatDongNhanVien, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
@@ -412,6 +415,15 @@
             this.btnHoatDongNhanVien.Name = "btnHoatDongNhanVien";
             this.btnHoatDongNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHoatDongNhanVien_ItemClick);
             // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Chuyển Chi Nhánh";
+            this.barButtonItem2.Id = 12;
+            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            // 
             // btnThoat
             // 
             this.btnThoat.Caption = "Thoát";
@@ -440,7 +452,7 @@
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager2;
             this.barDockControl1.Size = new System.Drawing.Size(1416, 30);
-            this.barDockControl1.Click += new System.EventHandler(this.barDockControl1_Click);
+            
             // 
             // barDockControl2
             // 
@@ -449,7 +461,7 @@
             this.barDockControl2.Location = new System.Drawing.Point(0, 646);
             this.barDockControl2.Manager = this.barManager2;
             this.barDockControl2.Size = new System.Drawing.Size(1416, 20);
-            this.barDockControl2.Click += new System.EventHandler(this.barDockControl2_Click);
+            
             // 
             // barDockControl3
             // 
@@ -458,7 +470,7 @@
             this.barDockControl3.Location = new System.Drawing.Point(0, 30);
             this.barDockControl3.Manager = this.barManager2;
             this.barDockControl3.Size = new System.Drawing.Size(0, 616);
-            this.barDockControl3.Click += new System.EventHandler(this.barDockControl3_Click);
+            
             // 
             // barDockControl4
             // 
@@ -467,8 +479,7 @@
             this.barDockControl4.Location = new System.Drawing.Point(1416, 30);
             this.barDockControl4.Manager = this.barManager2;
             this.barDockControl4.Size = new System.Drawing.Size(0, 616);
-            this.barDockControl4.Click += new System.EventHandler(this.barDockControl4_Click);
-            // 
+           
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "Thêm";
@@ -585,7 +596,7 @@
             this.nhanVienGridControl.TabIndex = 32;
             this.nhanVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.nhanVienGridControl.Click += new System.EventHandler(this.nhanVienGridControl_Click_3);
+            
             // 
             // gridView1
             // 
@@ -816,5 +827,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTrangThaiXoa;
         private DevExpress.XtraBars.BarButtonItem btnInDSNV;
         private DevExpress.XtraBars.BarButtonItem btnHoatDongNhanVien;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
     }
 }

@@ -118,6 +118,7 @@ namespace QLVT
         public static string hoTen = "";
         public static string diaChi = "";
         public static string ngaySinh = "";
+        public static string Macn = "";
 
         /*bidSou: BindingSource -> liên kết dữ liệu từ bảng dữ liệu vào chương trình*/
         public static BindingSource bindingSource = new BindingSource();//bds_dspm
@@ -201,7 +202,7 @@ namespace QLVT
             catch (SqlException ex)
             {
                 if (ex.Message.Contains("Error converting data type varchar to int"))
-                    MessageBox.Show("Bạn format Cell lại cột \"Ngày Thi\" qua kiểu Number hoặc mở File Excel.");
+                    ;
                 else MessageBox.Show(ex.Message);
                 conn.Close();
                 return ex.State;

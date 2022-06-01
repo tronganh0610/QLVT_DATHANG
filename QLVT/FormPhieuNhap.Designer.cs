@@ -151,7 +151,7 @@
             masoDDHLabel.Size = new System.Drawing.Size(99, 18);
             masoDDHLabel.TabIndex = 4;
             masoDDHLabel.Text = "Mã Số DDH :";
-            masoDDHLabel.Click += new System.EventHandler(this.masoDDHLabel_Click);
+            
             // 
             // mANVLabel
             // 
@@ -182,7 +182,7 @@
             mAVTLabel.Size = new System.Drawing.Size(91, 18);
             mAVTLabel.TabIndex = 14;
             mAVTLabel.Text = "Mã Vật Tư :";
-            mAVTLabel.Click += new System.EventHandler(this.mAVTLabel_Click);
+           
             // 
             // sOLUONGLabel
             // 
@@ -193,7 +193,7 @@
             sOLUONGLabel.Size = new System.Drawing.Size(86, 18);
             sOLUONGLabel.TabIndex = 16;
             sOLUONGLabel.Text = "Số Lượng :";
-            sOLUONGLabel.Click += new System.EventHandler(this.sOLUONGLabel_Click);
+            
             // 
             // dONGIALabel
             // 
@@ -204,7 +204,7 @@
             dONGIALabel.Size = new System.Drawing.Size(76, 18);
             dONGIALabel.TabIndex = 18;
             dONGIALabel.Text = "Đơn Giá :";
-            dONGIALabel.Click += new System.EventHandler(this.dONGIALabel_Click);
+            
             // 
             // bar1
             // 
@@ -600,7 +600,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSOLUONG.Size = new System.Drawing.Size(142, 28);
             this.txtSOLUONG.TabIndex = 17;
-            this.txtSOLUONG.EditValueChanged += new System.EventHandler(this.txtSOLUONG_EditValueChanged);
+            
             // 
             // txtMAVT
             // 
@@ -610,7 +610,7 @@
             this.txtMAVT.Name = "txtMAVT";
             this.txtMAVT.Size = new System.Drawing.Size(166, 28);
             this.txtMAVT.TabIndex = 15;
-            this.txtMAVT.TextChanged += new System.EventHandler(this.txtMAVT_TextChanged);
+            
             // 
             // separatorControl1
             // 
@@ -657,7 +657,7 @@
             this.txtMADDH.Name = "txtMADDH";
             this.txtMADDH.Size = new System.Drawing.Size(142, 28);
             this.txtMADDH.TabIndex = 5;
-            this.txtMADDH.TextChanged += new System.EventHandler(this.txtMADDH_TextChanged);
+            
             // 
             // deNGAY
             // 
@@ -761,7 +761,7 @@
             this.labelControl1.Size = new System.Drawing.Size(109, 21);
             this.labelControl1.TabIndex = 14;
             this.labelControl1.Text = "PHIẾU NHẬP";
-            this.labelControl1.Click += new System.EventHandler(this.labelControl1_Click);
+            
             // 
             // labelControl2
             // 
@@ -796,7 +796,7 @@
             this.txtDONGIA.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDONGIA.Size = new System.Drawing.Size(142, 28);
             this.txtDONGIA.TabIndex = 19;
-            this.txtDONGIA.EditValueChanged += new System.EventHandler(this.txtDONGIA_EditValueChanged);
+            
             // 
             // FormPhieuNhap
             // 

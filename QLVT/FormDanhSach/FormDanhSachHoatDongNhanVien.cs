@@ -40,15 +40,12 @@ namespace QLVT.FormDanhSach
             this.nhanVienTableAdapter.Fill(this.DS_SV1.NhanVien);
 
 
-            cmbChiNhanh.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
-            cmbChiNhanh.DisplayMember = "TENCN";
-            cmbChiNhanh.ValueMember = "TENSERVER";
-            cmbChiNhanh.SelectedIndex = Program.brand;
-            cmbChiNhanh.Enabled = false;
             /*cmbNhanVien.DataSource = bdsNhanVien;*//*sao chep bingding source tu form dang nhap*//*
             cmbNhanVien.DisplayMember = "MANV";
             cmbNhanVien.ValueMember = "TEN";
             cmbNhanVien.SelectedIndex = Program.brand;*/
+            txtChiNhanh.Text = Program.Macn;
+
             txtMaNV.Text = Program.maNhanVienDuocChon;
             txtHoTen.Text = Program.hoTen;
             dateEditNgayBatDau.EditValue = "05-01-2022";
@@ -75,7 +72,7 @@ namespace QLVT.FormDanhSach
             DanhSachHoatDongNhanVien ds = new DanhSachHoatDongNhanVien(txtMaNV.Text, cmbLoaiPhieu.SelectedItem.ToString(), ngayBatDau, denNgay );
 
             ds.txtMANV.Text = this.txtMaNV.Text;
-            ds.txtMACN.Text = this.cmbChiNhanh.Text;
+            ds.txtMACN.Text = this.txtChiNhanh.Text;
             ds.txtTENNV.Text = this.txtHoTen.Text;
             ds.txtLOAIPHIEU.Text =this.cmbLoaiPhieu.SelectedItem.ToString();
             ds.txtNGAY1.Text = ngayBatDau.ToString("dd / MM / yyyy");
@@ -106,7 +103,7 @@ namespace QLVT.FormDanhSach
 
                 /*GAN TEN CHI NHANH CHO BAO CAO*/
                 ds.txtMANV.Text = this.txtMaNV.Text;
-                ds.txtMACN.Text = this.cmbChiNhanh.Text;
+                ds.txtMACN.Text = this.txtChiNhanh.Text;
                 ds.txtTENNV.Text = this.txtHoTen.Text;
                 ds.txtLOAIPHIEU.Text = this.cmbLoaiPhieu.SelectedItem.ToString();
                 ds.txtNGAY1.Text = ngayBatDau.ToString("dd / MM / yyyy");
@@ -138,5 +135,7 @@ namespace QLVT.FormDanhSach
                 return;
             }
         }
+
+        
     }
 }

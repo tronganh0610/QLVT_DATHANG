@@ -606,3 +606,4 @@ C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\Project\QLVT\QLV
 C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\Project\QLVT\QLVT\QLVT\obj\Debug\QLVT.csproj.CopyComplete
 C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\Project\QLVT\QLVT\QLVT\obj\Debug\QLVT.exe
 C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\Project\QLVT\QLVT\QLVT\obj\Debug\QLVT.pdb
+C:\Users\Admin\OneDrive\Desktop\Cơ sở dữ liệu phân tán\Project\QLVT\QLVT\QLVT\obj\Debug\QLVT.FormChon.FormChuyenChiNhanh.resources

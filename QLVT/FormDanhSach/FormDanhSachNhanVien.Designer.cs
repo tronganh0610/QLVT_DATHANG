@@ -202,8 +202,8 @@
         private System.Windows.Forms.Button btnInDanhSach;
         private System.Windows.Forms.Button btnXemTruoc;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.ComboBox cmbChiNhanh;
         private System.Windows.Forms.BindingSource NhanVienBindingSource;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.ComboBox cmbChiNhanh;
     }
 }

@@ -31,9 +31,6 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
-            this.checkUser = new DevExpress.XtraEditors.CheckButton();
-            this.checkChiNhanh = new DevExpress.XtraEditors.CheckButton();
-            this.checkCongTy = new DevExpress.XtraEditors.CheckButton();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtMaNV = new System.Windows.Forms.TextBox();
@@ -41,19 +38,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCongTy = new System.Windows.Forms.RadioButton();
+            this.btnChiNhanh = new System.Windows.Forms.RadioButton();
+            this.btnUser = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.label5);
+            this.panelControl1.Controls.Add(this.panel1);
             this.panelControl1.Controls.Add(this.btnThoat);
             this.panelControl1.Controls.Add(this.btnXacNhan);
-            this.panelControl1.Controls.Add(this.checkUser);
-            this.panelControl1.Controls.Add(this.checkChiNhanh);
-            this.panelControl1.Controls.Add(this.checkCongTy);
             this.panelControl1.Controls.Add(this.txtPassword);
             this.panelControl1.Controls.Add(this.txtLogin);
             this.panelControl1.Controls.Add(this.txtMaNV);
@@ -93,36 +91,6 @@
             this.btnXacNhan.UseVisualStyleBackColor = false;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
-            // checkUser
-            // 
-            this.checkUser.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkUser.Appearance.Options.UseFont = true;
-            this.checkUser.Location = new System.Drawing.Point(296, 300);
-            this.checkUser.Name = "checkUser";
-            this.checkUser.Size = new System.Drawing.Size(94, 29);
-            this.checkUser.TabIndex = 9;
-            this.checkUser.Text = "User";
-            // 
-            // checkChiNhanh
-            // 
-            this.checkChiNhanh.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkChiNhanh.Appearance.Options.UseFont = true;
-            this.checkChiNhanh.Location = new System.Drawing.Point(180, 301);
-            this.checkChiNhanh.Name = "checkChiNhanh";
-            this.checkChiNhanh.Size = new System.Drawing.Size(94, 29);
-            this.checkChiNhanh.TabIndex = 8;
-            this.checkChiNhanh.Text = "Chi Nhánh";
-            // 
-            // checkCongTy
-            // 
-            this.checkCongTy.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkCongTy.Appearance.Options.UseFont = true;
-            this.checkCongTy.Location = new System.Drawing.Point(241, 300);
-            this.checkCongTy.Name = "checkCongTy";
-            this.checkCongTy.Size = new System.Drawing.Size(94, 29);
-            this.checkCongTy.TabIndex = 7;
-            this.checkCongTy.Text = "Công Ty";
-            // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,6 +98,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(160, 28);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtLogin
             // 
@@ -188,14 +157,52 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "TẠO TÀI KHOẢN MỚI";
             // 
-            // label5
+            // panel1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(204, 344);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(170, 16);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "(Chọn Chi Nhánh Hoặc User)";
+            this.panel1.Controls.Add(this.btnUser);
+            this.panel1.Controls.Add(this.btnChiNhanh);
+            this.panel1.Controls.Add(this.btnCongTy);
+            this.panel1.Location = new System.Drawing.Point(132, 293);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(339, 67);
+            this.panel1.TabIndex = 13;
+            // 
+            // btnCongTy
+            // 
+            this.btnCongTy.AutoSize = true;
+            this.btnCongTy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCongTy.Location = new System.Drawing.Point(29, 25);
+            this.btnCongTy.Name = "btnCongTy";
+            this.btnCongTy.Size = new System.Drawing.Size(79, 20);
+            this.btnCongTy.TabIndex = 0;
+            this.btnCongTy.TabStop = true;
+            this.btnCongTy.Text = "Công Ty";
+            this.btnCongTy.UseVisualStyleBackColor = true;
+            // 
+            // btnChiNhanh
+            // 
+            this.btnChiNhanh.AutoSize = true;
+            this.btnChiNhanh.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChiNhanh.Location = new System.Drawing.Point(129, 25);
+            this.btnChiNhanh.Name = "btnChiNhanh";
+            this.btnChiNhanh.Size = new System.Drawing.Size(91, 20);
+            this.btnChiNhanh.TabIndex = 1;
+            this.btnChiNhanh.TabStop = true;
+            this.btnChiNhanh.Text = "Chi Nhánh";
+            this.btnChiNhanh.UseVisualStyleBackColor = true;
+            this.btnChiNhanh.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // btnUser
+            // 
+            this.btnUser.AutoSize = true;
+            this.btnUser.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.Location = new System.Drawing.Point(245, 25);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(57, 20);
+            this.btnUser.TabIndex = 2;
+            this.btnUser.TabStop = true;
+            this.btnUser.Text = "User";
+            this.btnUser.UseVisualStyleBackColor = true;
             // 
             // FormTaoTaiKhoan
             // 
@@ -209,6 +216,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -223,11 +232,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.CheckButton checkUser;
-        private DevExpress.XtraEditors.CheckButton checkChiNhanh;
-        private DevExpress.XtraEditors.CheckButton checkCongTy;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnXacNhan;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton btnChiNhanh;
+        private System.Windows.Forms.RadioButton btnCongTy;
+        private System.Windows.Forms.RadioButton btnUser;
     }
 }

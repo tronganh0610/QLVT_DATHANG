@@ -18,49 +18,21 @@ namespace QLVT
     {
         /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
-        /********************************************
-         * đang thêm mới -> true -> đang dùng btnTHEM
-         *              -> false -> có thể là btnGHI( chỉnh sửa) hoặc btnXOA
-         *              
-         * Mục đích: dùng biến này để phân biệt giữa btnTHEM - thêm mới hoàn toàn
-         * và việc chỉnh sửa nhân viên( do mình ko dùng thêm btnXOA )
-         * Trạng thái true or false sẽ được sử dụng 
-         * trong btnGHI - việc này để phục vụ cho btnHOANTAC
-         ********************************************/
+        
         bool dangThemMoi = false;
         public string makho = "";
         string maChiNhanh = "";
-        /**********************************************************
-         * undoList - phục vụ cho btnHOANTAC -  chứa các thông tin của đối tượng bị tác động 
-         * 
-         * nó là nơi lưu trữ các đối tượng cần thiết để hoàn tác các thao tác
-         * 
-         * nếu btnGHI sẽ ứng với INSERT
-         * nếu btnXOA sẽ ứng với DELETE
-         * nếu btnCHUYENCHINHANH sẽ ứng với CHANGEBRAND
-         **********************************************************/
+       
         Stack undoList = new Stack();
 
-
-
         /********************************************************
-         * chứa những dữ liệu hiện tại đang làm việc
+         * bds chứa những dữ liệu hiện tại đang làm việc
          * gc chứa grid view đang làm việc
          ********************************************************/
         BindingSource bds = null;
         GridControl gc = null;
         string type = "";
 
-
-
-        /************************************************************
-         * CheckExists:
-         * Để tránh việc người dùng ấn vào 1 form đến 2 lần chúng ta 
-         * cần sử dụng hàm này để kiểm tra xem cái form hiện tại đã 
-         * có trong bộ nhớ chưa
-         * Nếu có trả về "f"
-         * Nếu không trả về "null"
-         ************************************************************/
         private Form CheckExists(Type ftype)
         {
             foreach (Form f in this.MdiChildren)
@@ -95,8 +67,7 @@ namespace QLVT
 
             this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
             this.datHangTableAdapter.Fill(this.DS_SV1.DatHang);
-            /*van con ton tai loi chua sua duoc*/
-            //maChiNhanh = ((DataRowView)bdsDatHang[0])["MACN"].ToString();
+            
 
             /*Step 2*/
             cmbChiNhanh.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
@@ -299,11 +270,7 @@ namespace QLVT
             this.btnCheDo.Enabled = false;
             this.btnThoat.Enabled = true;
         }
-        /**************************************************
-         * ham nay kiem tra du lieu dau vao
-         * true là qua hết
-         * false là thiếu một dữ liệu nào đó
-         **************************************************/
+        
         private bool kiemTraDuLieuDauVao(String cheDo)
         {
             if (cheDo == "Đơn Đặt Hàng")
@@ -352,25 +319,20 @@ namespace QLVT
                     MessageBox.Show("Không thể nhỏ hơn 1", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
-                /*
-                if( txtSoLuong.Value > Program.soLuongVatTu)
+
+                if (txtSoLuong.Value > Program.soLuongVatTu)
                 {
                     MessageBox.Show("Sô lượng đặt mua lớn hơn số lượng vật tư hiện có", "Thông báo", MessageBoxButtons.OK);
                     return false;
-                }*/
+                }
             }
             return true;
         }
-        /**************************************************
-         * tra ve 1 cau truy van de phuc hoi du lieu
-         * 
-         * ket qua tra ve dua theo che do dang su dung
-         **************************************************/
+        
         private String taoCauTruyVanHoanTac(String cheDo)
         {
             String cauTruyVan = "";
             DataRowView drv;
-
 
             /*Dang chinh sua don dat hang*/
             if (cheDo == "Đơn Đặt Hàng" && dangThemMoi == false)
@@ -455,8 +417,7 @@ namespace QLVT
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
             if (ketQua == false) return;
 
-            //String cauTruyVanHoanTac = taoCauTruyVanHoanTac(cheDo);
-            //Console.WriteLine(cauTruyVanHoanTac);
+            
 
 
             /*Step 3*/
@@ -493,19 +454,14 @@ namespace QLVT
             //Console.WriteLine(txtMaNhanVien.Text);
             int viTriHienTai = bds.Position;
             int viTriMaDonDatHang = bdsDatHang.Find("MasoDDH", txtMaDDH.Text);
-            /******************************************************************
-             * truong hop them moi don dat hang moi quan tam xem no ton tai hay
-             * chua ?
-             ******************************************************************/
+            
             if (result == 1 && cheDo == "Đơn Đặt Hàng" && viTriHienTai != viTriMaDonDatHang)
             {
                 MessageBox.Show("Mã đơn hàng này đã được sử dụng !\n\n", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            /*****************************************************************
-             * tat ca cac truong hop khac ko can quan tam !!
-             *****************************************************************/
+            
 
             else
             {
@@ -548,18 +504,7 @@ namespace QLVT
                 }
             }
         }
-        /**********************************************************************
-         * moi lan nhan btnHOANTAC thi nen nhan them btnLAMMOI de 
-         * tranh bi loi khi an btnTHEM lan nua
-         * 
-         * statement: chua cau y nghia chuc nang ngay truoc khi an btnHOANTAC.
-         * Vi du: statement = INSERT | DELETE | CHANGEBRAND
-         * 
-         * bdsNhanVien.CancelEdit() - phuc hoi lai du lieu neu chua an btnGHI
-         * Step 0: trường hợp đã ấn btnTHEM nhưng chưa ấn btnGHI
-         * Step 1: kiểm tra undoList có trông hay không ?
-         * Step 2: Neu undoList khong trống thì lấy ra khôi phục
-         *********************************************************************/
+        
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /* Step 0 */
@@ -679,13 +624,7 @@ namespace QLVT
                 return;
             }
         }
-        /*
-         * Step 1: lấy chế độ đang sử dụng và đặt dangThemMoi = true để phục vụ điều kiện tạo câu truy
-         * vấn hoàn tác
-         * Step 2: kiểm tra điều kiện theo chế độ đang sử dụng
-         * Step 3: nạp câu truy vấn hoàn tác vào undolist
-         * Step 4: Thực hiện xóa nếu OK
-         */
+        
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string cauTruyVan = "";
@@ -725,8 +664,7 @@ namespace QLVT
             }
 
             cauTruyVan = taoCauTruyVanHoanTac(cheDo);
-            //Console.WriteLine("Line 753");
-            //Console.WriteLine(cauTruyVan);
+            
             undoList.Push(cauTruyVan);
 
             /*Step 2*/
@@ -825,6 +763,7 @@ namespace QLVT
             form.ShowDialog();
 
             this.txtMaKho.Text = Program.maKhoDuocChon;
+            
         }
 
         private void btnChonVatTu_Click(object sender, EventArgs e)
@@ -834,10 +773,6 @@ namespace QLVT
             this.txtMaVT.Text = Program.maVatTuDuocChon;
         }
 
-        private void separatorControl1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         
 

@@ -18,46 +18,17 @@ namespace QLVT
     {
         /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
-        /********************************************
-         * đang thêm mới -> true -> đang dùng btnTHEM
-         *              -> false -> có thể là btnGHI( chỉnh sửa) hoặc btnXOA
-         *              
-         * Mục đích: dùng biến này để phân biệt giữa btnTHEM - thêm mới hoàn toàn
-         * và việc chỉnh sửa nhân viên( do mình ko dùng thêm btnXOA )
-         * Trạng thái true or false sẽ được sử dụng 
-         * trong btnGHI - việc này để phục vụ cho btnHOANTAC
-         ********************************************/
+
         bool dangThemMoi = false;
         public string makho = "";
         string maChiNhanh = "";
-        /**********************************************************
-         * undoList - phục vụ cho btnHOANTAC -  chứa các thông tin của đối tượng bị tác động 
-         * 
-         * nó là nơi lưu trữ các đối tượng cần thiết để hoàn tác các thao tác
-         * 
-         * nếu btnGHI sẽ ứng với INSERT
-         * nếu btnXOA sẽ ứng với DELETE
-         * nếu btnCHUYENCHINHANH sẽ ứng với CHANGEBRAND
-         **********************************************************/
+
         Stack undoList = new Stack();
 
-
-
-        /********************************************************
-         * chứa những dữ liệu hiện tại đang làm việc
-         * gc chứa grid view đang làm việc
-         ********************************************************/
         BindingSource bds = null;
         GridControl gc = null;
 
-        /************************************************************
-         * CheckExists:
-         * Để tránh việc người dùng ấn vào 1 form đến 2 lần chúng ta 
-         * cần sử dụng hàm này để kiểm tra xem cái form hiện tại đã 
-         * có trong bộ nhớ chưa
-         * Nếu có trả về "f"
-         * Nếu không trả về "null"
-         ************************************************************/
+       
         private Form CheckExists(Type ftype)
         {
             foreach (Form f in this.MdiChildren)
@@ -410,9 +381,7 @@ namespace QLVT
 
 
                 bds.CancelEdit();
-                /*xoa dong hien tai*/
-                //bds.RemoveCurrent();
-                /* trở về lúc đầu con trỏ đang đứng*/
+                
                 bds.Position = viTri;
                 return;
             }
@@ -546,16 +515,9 @@ namespace QLVT
         {
             string cauTruyVan = "EXEC sp_CapNhatSoLuongVatTu 'EXPORT','" + maVatTu + "', " + soLuong;
             int n = Program.ExecSqlNonQuery(cauTruyVan);
-            //Console.WriteLine("Line 536");
-            //Console.WriteLine(cauTruyVan);
+            
         }
-        /*
-         *Step 1: xac dinh xem minh dang GHI o che do nao
-         *Step 2: kiem tra du lieu dau vao
-         *Step 3: tao cau truy van hoan tac
-         *Step 4: dung stored procedure kiem tra xem phieu nhap da ton tai chua ?
-         *Step 5: xu ly du lieu neu co
-         */
+       
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/

@@ -58,11 +58,7 @@ namespace QLVT
             }
         }
 
-        /******************************************************************
-         * mở kết nối tới server 
-         * @return trả về 1 nếu thành công
-         *         trả về 0 nếu thất bại
-         ******************************************************************/
+        
         
         private void label1_Click(object sender, EventArgs e)
         {
@@ -133,15 +129,15 @@ namespace QLVT
 
         private void FormDangNhap_Load_1(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS_SV1.NhanVien' table. You can move, or remove it, as needed.
+            
             this.nhanVienTableAdapter.Fill(this.DS_SV1.NhanVien);
-            // TODO: This line of code loads data into the 'dS_SV1.view_DanhSachPhanManh' table. You can move, or remove it, as needed.
+            
             this.view_DanhSachPhanManhTableAdapter.Fill(this.DS_SV1.view_DanhSachPhanManh);
             if (KetNoiDatabaseGoc() == 0)
                 return;
 
-            // đặt sẵn 1 tài khoản mật khẩu mặt định 
-            txtTAIKHOAN.Text = "TH"; // le trang 
+             
+            txtTAIKHOAN.Text = "TH"; 
             txtMATKHAU.Text = "0610";
             layDanhSachPhanManh("select * from LINK2.QLVT_DATHANG.dbo.view_DanhSachPhanManh");
             cmbCHINHANH.SelectedIndex = 0;

@@ -18,14 +18,7 @@ namespace QLVT
         {
             InitializeComponent();
         }
-        /************************************************************
-         * CheckExists:
-         * Để tránh việc người dùng ấn vào 1 form đến 2 lần chúng ta 
-         * cần sử dụng hàm này để kiểm tra xem cái form hiện tại đã 
-         * có trong bộ nhớ chưa
-         * Nếu có trả về "f"
-         * Nếu không trả về "null"
-         ************************************************************/
+       
         private Form CheckExists(Type ftype)
         {
             foreach (Form f in this.MdiChildren)

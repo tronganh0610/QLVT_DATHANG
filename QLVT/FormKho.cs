@@ -288,9 +288,7 @@ namespace QLVT
             String tenKhoHang = drv["TENKHO"].ToString().Trim();
             String diaChi = drv["DIACHI"].ToString().Trim();
 
-            /*declare @returnedResult int
-              exec @returnedResult = sp_KiemTraMaVatTu '20'
-              select @returnedResult*/
+         
             String cauTruyVan =
                     "DECLARE	@result int " +
                     "EXEC @result = sp_TraCuu_KiemTraMaKho '" +
@@ -367,11 +365,8 @@ namespace QLVT
                                 "DIACHI = '" + diaChi + "'" +
                                 "WHERE MAKHO = '" + maKhoHang + "'";
                         }
-                        //Console.WriteLine("CAU TRUY VAN HOAN TAC");
-                        //Console.WriteLine(cauTruyVanHoanTac);
+                        
 
-                        /*Đưa câu truy vấn hoàn tác vào undoList 
-                         * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
                         undoList.Push(cauTruyVanHoanTac);
 
                         this.bdsKho.EndEdit();
@@ -413,9 +408,7 @@ namespace QLVT
                 this.panelControl2.Enabled = true;
 
                 bdsKho.CancelEdit();
-                /*xoa dong hien tai*/
-                //bdsKho.RemoveCurrent();
-                /* trở về lúc đầu con trỏ đang đứng*/
+               
                 bdsKho.Position = viTri;
                 return;
             }
@@ -445,7 +438,7 @@ namespace QLVT
                 btnXoa.Enabled = false;
             }
 
-            /*if (bdsDatHang.Count > 0)
+            if (bdsDatHang.Count > 0)
             {
                 MessageBox.Show("Không thể xóa kho hàng này vì đã lập đơn đặt hàng", "Thông báo", MessageBoxButtons.OK);
                 return;
@@ -461,12 +454,9 @@ namespace QLVT
             {
                 MessageBox.Show("Không thể xóa kho hàng này vì đã lập phiếu xuất", "Thông báo", MessageBoxButtons.OK);
                 return;
-            }*/
+            }
 
-            /* Phần này phục vụ tính năng hoàn tác
-                    * Đưa câu truy vấn hoàn tác vào undoList 
-                    * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
-
+           
 
             string cauTruyVanHoanTac =
             "INSERT INTO DBO.KHO( MAKHO,TENKHO,DIACHI,MACN) " +

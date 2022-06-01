@@ -27,22 +27,13 @@ namespace QLVT
         {
             if (Program.role == "CongTy")
             {
-                vaiTro = "CongTy";
-                checkCongTy.Checked = true;
-                checkCongTy.Enabled = false;
-                checkChiNhanh.Visible= false;
-                checkUser.Visible = false;  
-                label5.Visible = false;
+                btnChiNhanh.Enabled = false;
+                btnUser.Enabled= false;
+
             }
             if (Program.role == "ChiNhanh")
             {
-                
-                checkCongTy.Visible = false;
-                checkChiNhanh.Enabled = true;
-                checkUser.Enabled = true;
-                checkChiNhanh.Checked = true;
-                
-
+                btnCongTy.Enabled = false;
             }
 
         }
@@ -86,7 +77,11 @@ namespace QLVT
                 txtPassword.Focus();
                 return false;
             }
-
+            if (btnCongTy.Checked == false && btnChiNhanh.Checked == false && btnUser.Checked == false)
+            {
+                MessageBox.Show("Vai trò không được thiếu!", "", MessageBoxButtons.OK);
+                return false;
+            }
             return true;
         }
 
@@ -98,19 +93,10 @@ namespace QLVT
             tenDangNhap = txtLogin.Text;
             matKhau = txtPassword.Text;
             maNhanVien = txtMaNV.Text;
-            
-            if (checkChiNhanh.Checked == true)
-            {
-                vaiTro = "ChiNhanh";
-                checkUser.Enabled = false;
-            }
-            else if (checkUser.Checked == true)
-            {
-                vaiTro = "User";
-                checkUser.Enabled = false;
-            }
-            
-            
+
+            if (btnCongTy.Checked) vaiTro = "CongTy";
+            if (btnChiNhanh.Checked) vaiTro = "ChiNhanh";
+            if (btnUser.Checked) vaiTro = "User";
             String cauTruyVan =
                     "EXEC sp_TaoLogin '" + tenDangNhap + "' , '" + matKhau + "', '"
                     + maNhanVien + "', '" + vaiTro + "'";
@@ -136,6 +122,11 @@ namespace QLVT
                 Console.WriteLine(ex.Message);
                 return;
             }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
